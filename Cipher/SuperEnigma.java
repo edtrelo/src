@@ -6,103 +6,93 @@ import java.util.*;
 
 public class SuperEnigma {
 
-	public void hola() {
-		int a = 1+1;
-	}
-	public void sss() {
-		String k="Hola como estas ";
-	}
-	
-	
-	//PRIMER MÉTODO DE ENCRIPTACIÓN
+    //Ahorita las clases las pongo en public para poder probarlas
+    //Luego hay que cambiarlas
+    public char[] transposition(int clave, String palabra) {
 
-    String palabra = "TELEFONO";
-
-    int largodelapalabra = palabra.length();
-
-    char palabracomochar [] = palabra.toCharArray();
-
-    for(int x1 = 0; x < largodelapalabra; x++){
-        System.out.print(palabracomochar[x1] + "\t");
-    }
-
-    char letrasdelABC [] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o',
-    'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
-
-    char Arreglochido [] = new char[2*largodelapalabra-1];
-
-    for(int x2 = 0; x < Arreglochido.length; x++){
-        Random random = new Random();
-        if (x2%2 == 0){
-            Arreglochido[x2] = palabracomochar[x2/2];
+        //Nos aseguramos que la clave sea mayor a cero.
+        while(clave < 0) {
+            Scanner scan = new Scanner(System.in);
+            System.out.println("La clave debe ser mayor a cero.");
+            clave = scan.nextInt();
         }
-        if (x2%2 == 1){
-            Arreglochido[x2] = letrasdelABC[random.nextInt(letrasdelABC.length)];
+
+        boolean isKeyEven; /*Vamos a hacer dos metodos dependiendo si la clave
+		es par o impar*/
+
+        if(clave%2 == 0){
+            isKeyEven = true;
         }
-    }
+        else {
+            isKeyEven = false;
+        }
 
-    System.out.println("\n");
+        //Creamos la palabra como arreglo de chars
+        char [] palabraComoArreglo = palabra.toCharArray();
 
-    for(int x3 = 0; x < Arreglochido.length; x++){
-        System.out.print(Arreglochido[x3] + "\t");
-    }
+		/*Tendriamos que crear un metodo aparte para checar si una palabra es toda
+		mayusculas y transformarla a minusculas*/
 
-    System.out.println("\n");
+        int largoDeLaPalabra = palabra.length();
+
+        boolean isWordUpper = true;
+
+        //Verificamos si la palabra es mayuscula o minuscula
+        for(int x = 0; x < largoDeLaPalabra; x++){
+            if(!Character.isUpperCase(palabraComoArreglo[x])){
+                isWordUpper = false;
+            }
+        }
+
+        //Pasamos todas las palabras a minusculas
+        if(isWordUpper){
+            for(int x = 0; x < largoDeLaPalabra; x++){
+                Character.toLowerCase(palabraComoArreglo[x]);
+            }
+        }
 
 
-    //FIN DEL PRIMERO CODIFICADO
-
-    //SEGUNDO MÉTODO DE CODIFICACIÓN
-
-    String letras5x5 [][] = { {"A","B","C","D","E"},{"F","G","H","J","K"},{"L","M","N","O","P"},
-            {"Q","R","S","T","U"},{"V","W","X","Y","Z"}};
+        char letrasdelABC [] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o',
+                'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
 
 
-    String clave [] = {"A","B","C","D","E"};
+        char arregloCifrado [] = new char[2*largoDeLaPalabra];
 
-    String codificado [] = new String[largodelapalabra];
+        //Aqui dependiendo de la clave vamos a rellenar los espacios
 
-    for (int z = 0; z < largodelapalabra; z++){
-        for(int x = 0; x < letras5x5.length; x++){
-            for(int y = 0; y < letras5x5[x].length; y++){
-                if (String.valueOf(palabracomochar[z]).equals("I")){
-                    palabracomochar[z] = 'J';
+
+        if(isKeyEven) {
+            for(int x = 0; x < arregloCifrado.length; x++){
+                Random random = new Random();
+                if (x%2 == 0){
+                    arregloCifrado[x] = palabraComoArreglo[x/2];
                 }
-                if (String.valueOf(palabracomochar[z]).equals(letras5x5[x][y])){
-                    codificado[z] = clave[x] + clave[y];
+                if (x%2 == 1){
+                    arregloCifrado[x] = letrasdelABC[random.nextInt(letrasdelABC.length)];
                 }
             }
         }
-    }
-
-    for(int x4 = 0; x < codificado.length; x++){
-        System.out.print(codificado[x4] + "\t");
-    }
-
-    //FIN DEL SEGUNDO CODIFICADO
-
-    //TERCER CIFRADO CÉSAR
-
-    System.out.println("\n");
-    int clavecesar = 4;
-
-    int clavechidacesar = clavecesar%26;
-
-    String letrasCesar [] = {"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P",
-            "Q","R","S","T","U","V","W","X","Y","Z"};
-
-    String cesarcodificado [] = new String[largodelapalabra];
-
-    for (int x5 = 0; x < largodelapalabra; x++){
-        for (int y = 0; y < letrasCesar.length; y++) {
-            if (String.valueOf(palabracomochar[x5]).equals(letrasCesar[y])) {
-                cesarcodificado[x5] = letrasCesar[(y + clavechidacesar) % 26];
+        else {
+            for(int x = 0; x < arregloCifrado.length; x++){
+                Random random = new Random();
+                if (x%2 == 0){
+                    arregloCifrado[x] = letrasdelABC[random.nextInt(letrasdelABC.length)];
+                }
+                if (x%2 == 1){
+                    arregloCifrado[x] = palabraComoArreglo[(x-1)/2];
+                }
             }
         }
+
+        //Volvemos a transformar (si lo hicimos) el char a mayusculas
+
+        if(isWordUpper){
+            for(int x = 0; x < arregloCifrado.length; x++){
+                Character.toUpperCase(arregloCifrado[x]);
+            }
+        }
+
+        return arregloCifrado;
     }
 
-    for (int x = 0; x < largodelapalabra; x++){
-        System.out.print(cesarcodificado[x] + "\t");
-    }
-}	
 }
