@@ -21,5 +21,20 @@ public class Chat {
 		for(int x = 0; x < prueba3.length; x++){
 			System.out.print(prueba3[x] + "\t");
 		}
+
+		String palabrita = "world";
+
+		palabrita = palabrita.replace('w','x');
+
+		System.out.println(palabrita);
+
+		String[] str = prueba1.cifradoDePolibioM(3,"world");
+
+		System.out.println("\n");
+
+		for(int x = 0; x < str.length; x++){
+			System.out.print(str[x] + "\t");
+		}
+
 	}
 }
