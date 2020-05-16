@@ -1,11 +1,25 @@
 package Comunication;
 
+import Cipher.*;
+
 public class Chat {
 	
 	public static void main (String[] args){
-	
-		int k=5;
-		String l="Hola";
-		
+
+		SuperEnigma prueba1 = new SuperEnigma();
+
+		char[] prueba2 = prueba1.transposition(3, "hola");
+
+		for(int x = 0; x < prueba2.length; x++){
+			System.out.print(prueba2[x] + "\t");
+		}
+
+		char[] prueba3 = prueba1.transposition(8, "hola");
+
+		System.out.println("\n");
+
+		for(int x = 0; x < prueba3.length; x++){
+			System.out.print(prueba3[x] + "\t");
+		}
 	}
 }
