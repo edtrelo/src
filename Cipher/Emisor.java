@@ -15,6 +15,7 @@ public class Emisor extends SuperEnigma{
         this.privateKey = privateKey;
         
     }
+
     public Emisor(String privateKey, String mensaje){
         this.setPrivateKey(privateKey);
         this.setMensaje(mensaje);
@@ -31,6 +32,9 @@ public class Emisor extends SuperEnigma{
     public String [] cifradoDePolibioM(int clave){
         return super.cifradoDePolibioM(clave, this.mensaje);
     }
+
+    public String[] cifradoCesar(int clave){return super.cifradoCesar(clave, this.mensaje);}
+
     //-------Fin: Métodos-----------------------------------------------------------------
 
     //-------Inicio: Getters y Setters----------------------------------------------------
@@ -51,9 +55,10 @@ public class Emisor extends SuperEnigma{
          
     }
 
-    public void setPrivateKey(String privateKey) {//Paraque pueda usarse el metodo de la clave debe de recibir una 
-                                                  // "clave privada" para que se pueda modificar y tambien se debe de 
-                                                  // verificar que este disponible el usuario 
+    public void setPrivateKey(String privateKey) {
+        /*Para que pueda usarse el metodo de la clave debe de recibir una
+        "clave privada" para que se pueda modificar y tambien se debe de
+        verificar que este disponible el usuario */
 
         Scanner scan = new Scanner(System.in);
         if(this.available){ //Este es el caso para cuando se instancia por primera vez
@@ -71,7 +76,6 @@ public class Emisor extends SuperEnigma{
         //La idea aquí era que el usuario debe meter la clave vieja para cambiarla por una nueva.
     }
 
-
     public boolean getAvailable(){
        return available;
     }
@@ -82,6 +86,7 @@ public class Emisor extends SuperEnigma{
         /*este método set que no reciba atributos, o sea, si está disponible, entonces este método hace que no lo
         este y lo mismo si no lo está*/
     }
+
     //-------Fin Getters y Setters----------------------------------------------------
 
 } // Fin de la Clase Emisor-----------------------------------------------------------

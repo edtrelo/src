@@ -15,4 +15,17 @@ public class Auxiliar {
             System.out.print(arreglo[x]);
         }
     }
+
+    //Verificar si una palabra está en mayúsculas (toda la palabra)
+    public static boolean isUpperCase(String string){
+        char[] charArray = string.toCharArray();
+
+        for(int i=0; i < charArray.length; i++){
+            //if any character is not in upper case, return false
+            if( !Character.isUpperCase( charArray[i] ))
+                return false;
+        }
+        return true;
+    }
+
 }
