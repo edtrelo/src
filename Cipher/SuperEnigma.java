@@ -147,8 +147,6 @@ public class SuperEnigma {
         return codificado;
 
     }
-    
-    
-    
+
     // ya pude obtener el proyecto :D
 }

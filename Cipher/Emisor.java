@@ -6,6 +6,9 @@ public class Emisor extends SuperEnigma{
     private String privateKey;
     private boolean available = false;
 
+    //Por hacer el constructor
+
+
     //Sobreescritura del metodo de la superclase
     public char[] transposition() {
         int clave = Integer.parseInt(this.privateKey);
@@ -16,5 +19,8 @@ public class Emisor extends SuperEnigma{
         int clave = Integer.parseInt(this.privateKey);
         return super.cifradoDePolibioM(clave, this.mensaje);
     }
+
+    //getters y setters
+
 }
 
