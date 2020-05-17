@@ -1,18 +1,17 @@
 package Cipher;
 
+import java.util.*;
+
 public class Emisor extends SuperEnigma{
 
     private String mensaje;
     private String privateKey;
     private boolean available = false;
+    private int contadorClave = 1;
 
     //Por hacer el constructor
-    
-    //Espero me salga bien lo que me pide de los getters y el constructor ajjajaja
-    //Alexis hara el metodo CM, lo que esta en en esta clase y poner los de los signos.
-    //Cambiar las vocales acentuadas
-    
-    //Constructores
+
+    //-------Inicio: Constructores------------------------------------------------------
     public Emisor(String privateKey){
         this.setPrivateKey(privateKey);
         
@@ -21,8 +20,11 @@ public class Emisor extends SuperEnigma{
         this.setPrivateKey(privateKey);
         this.setMensaje(mensaje);
     }
+    //-------Fin: Constructores----------------------------------------------------------
 
-    //Sobreescritura del metodo de la superclase
+
+    //-------Inicio: Métodos-------------------------------------------------------------
+
     public char[] transposition(int clave) {
         return super.transposition(clave, this.mensaje);
     }
@@ -30,43 +32,65 @@ public class Emisor extends SuperEnigma{
     public String [] cifradoDePolibioM(int clave){
         return super.cifradoDePolibioM(clave, this.mensaje);
     }
+    //-------Fin: Métodos-----------------------------------------------------------------
 
-    //getters y setters
+    //-------Inicio: Getters y Setters----------------------------------------------------
 
     public String getMensaje() {
-        return mensaje;
+        if (available){
+            return mensaje;
+        }else {
+            System.out.println("El usuario no está disponible. ");
+            return "";
+        }
     }
 
     public void setMensaje(String mensaje) { //para que pueda usar el metodo, solo debe de cumplir que el usuario este disp.
-        if (this.available=true){
-            System.out.println("El usuario esta disponible");
-           this.mensaje=mensaje; 
-        }else{System.out.println("El usuario no esta disponible");}
+        if (available){
+            this.mensaje = mensaje;
+        }else{System.out.println("El usuario no está disponible.");}
          
-    }
-
-    public String getPrivateKey() {
-        return privateKey;
     }
 
     public void setPrivateKey(String privateKey) {//Paraque pueda usarse el metodo de la clave debe de recibir una 
                                                   // "clave privada" para que se pueda modificar y tambien se debe de 
                                                   // verificar que este disponible el usuario 
-                                                  
-        if(this.available=true){
-            System.out.println("El usuario esta disponible");
-        this.privateKey = privateKey;
-        }else{System.out.println("El usuario debe de estar dispoible para poder interactuar");}
+
+        Scanner scan = new Scanner(System.in);
+        if(this.available){ //Este es el caso para cuando se instancia por primera vez
+            if (contadorClave == 1){
+                String claveNueva = scan.nextLine();
+                this.privateKey = claveNueva;
+                contadorClave =+ 1; //Sumamos uno al contador para que no se vuelva a usar
+            }else{
+                System.out.println("Por favor ingrese la clave actual: ");
+                String claveIngresada = scan.nextLine();
+                while(!claveIngresada.equals(this.privateKey)){
+                    System.out.println("La clave que ha ingresado no es correcta. ");
+                }
+                System.out.println("Ingrese la nueva clave: ");
+                String claveNueva = scan.nextLine();
+                this.privateKey = claveNueva;
+            }
+        }else {
+            System.out.println("El usuario debe de estar dispoible para poder interactuar.");
+        }
+
+        //La idea aquí era que el usuario debe meter la clave vieja para cambiarla por una nueva.
     }
+
+
     public boolean getAvailable(){
-        return available;
+       return available;
     }
-    public void setAvailable(boolean available) {
-        //tengo duda en como modificar el estado de disponibilidad
-        this.available = available;
+
+    public void switchAvailable() {
+        this.available = !this.available;
+
+        /*este método set que no reciba atributos, o sea, si está disponible, entonces este método hace que no lo
+        este y lo mismo si no lo está*/
     }
-    
-    
-    
-}
+    //-------Fin Getters y Setters----------------------------------------------------
+
+} // Fin de la Clase Emisor-----------------------------------------------------------
 
