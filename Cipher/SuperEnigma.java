@@ -5,13 +5,11 @@ import Comunication.*;
 import java.util.*;
 
 
- public class SuperEnigma {  
-
- 
+ class SuperEnigma {
 
     //Ahorita las clases las pongo en public para poder probarlas
     //Luego hay que cambiarlas
-    public char[] transposition(int clave, String palabra) {
+    protected char[] transposition(int clave, String palabra) {
 
         //Nos aseguramos que la clave sea mayor a cero.
         while(clave < 0) {
@@ -98,7 +96,7 @@ import java.util.*;
         return arregloCifrado;
     }
 
-    public String [] cifradoDePolibioM(int clave, String palabra) {
+    protected String [] cifradoDePolibioM(int clave, String palabra) {
 
         //Nos aseguramos que la clave sea mayor a cero.
         while(clave < 0) {
@@ -144,6 +142,13 @@ import java.util.*;
                         codificado[z] = arregloClave[x] + arregloClave[y];
                     }
                 }
+            }
+        }
+
+        //Esto soluciona lo de los símbolos y espacios
+        for (int x = 0; x < codificado.length; x++){
+            if(codificado[x] == null){
+                codificado[x] = String.valueOf(palabra.charAt(x));
             }
         }
 
