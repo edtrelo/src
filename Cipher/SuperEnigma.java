@@ -4,7 +4,7 @@ import Comunication.*;
 
 import java.util.*;
 
-public class SuperEnigma {
+ class SuperEnigma {
 
     //Ahorita las clases las pongo en public para poder probarlas
     //Luego hay que cambiarlas
