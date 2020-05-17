@@ -4,7 +4,7 @@ import Comunication.*;
 
 import java.util.*;
 
- class SuperEnigma {
+ class SuperEnigma {  
 
     //Ahorita las clases las pongo en public para poder probarlas
     //Luego hay que cambiarlas
@@ -148,5 +148,7 @@ import java.util.*;
 
     }
 
-    // ya pude obtener el proyecto :D
+//    public String[] cMorse(int clave, String mensaje){
+//        
+//    }
 }
