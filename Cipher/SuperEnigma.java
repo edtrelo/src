@@ -1,10 +1,8 @@
 package Cipher;
 
 import Auxiliar.Auxiliar;
-import Comunication.*;
 
 import java.util.*;
-
 
  class SuperEnigma {
 
@@ -81,6 +79,8 @@ import java.util.*;
 
     protected String [] cifradoDePolibioM(int clave, String palabra) {
 
+        //NOTA: En vez de que la j sustituyera a la i, aquí sustituimos la w por la v.
+
         //Nos aseguramos que la clave sea mayor a cero.
         while(clave < 0) {
             Scanner scan = new Scanner(System.in);
@@ -99,14 +99,13 @@ import java.util.*;
 				{"U","V","X","Y","Z"}};
 
         //Servira para darle las vueltas al abecedario
-        int indiceModuloClave = clave%26 - 1;
 
         String[] arregloClave = new String[5];
 
         //Relleno el arreglo que va a contener los indices de la tabla
         for(int x = 0; x < 5; x++){
             //El arreglo se va a recorrer según la clave
-            arregloClave[x] = abecedario25[indiceModuloClave + x];
+            arregloClave[x] = abecedario25[(x + clave-1)%25];
         }
 
         String codificado [] = new String[palabra.length()];
@@ -180,8 +179,6 @@ import java.util.*;
                 cesarCodificado[x] = cesarCodificado[x].toLowerCase();
             }
         }
-
-
 
         return cesarCodificado;
     }

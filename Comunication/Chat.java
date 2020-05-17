@@ -9,12 +9,15 @@ public class Chat {
 
         Emisor emisor1 = new Emisor("123");
         emisor1.switchAvailable();
-        emisor1.setMensaje("GRECIA");
+        emisor1.setMensaje("grecia");
         System.out.println(emisor1.getMensaje());
 
-        String [] cif1 = emisor1.cifradoDePolibioM(1);
+        String [] cif1 = emisor1.cifradoDePolibioM(25);
+        String [] cif11 = emisor1.cifradoDePolibioM(1);
 
         Auxiliar.printArray(cif1);
+        System.out.println("\n");
+        Auxiliar.printArray(cif11);
 
         System.out.println("\n");
 
