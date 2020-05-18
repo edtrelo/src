@@ -29,7 +29,7 @@ public class Emisor extends SuperEnigma{
         return super.transposition(clave, this.mensaje);
     }
 
-    public String [] cifradoDePolibioM(int clave){
+    public String[] cifradoDePolibioM(int clave){
         return super.cifradoDePolibioM(clave, this.mensaje);
     }
 

@@ -77,19 +77,20 @@ public class Prueba_cMorse {
   //aqui me estoy dando de topes para el codigo      
  
   String[] diagonal={"/"};      
- String[] morse={" "};
+  String[] morse={" "};
  
-        for(int x=0,x<mensajeCifrado.length;x++){
+        for(int x = 0; x<mensajeCifrado.length;x++){
             
         }
         
         for(int i=0;i<largoDelMensaje;i++){
             if(mensaje.charAt(i)==' '){//aqui corroboramos los espacios y el chartAt es para darle indexizacion al mensaje
-              morse=mensajeCifrado+morse;              
+              morse = mensajeCifrado + morse;
             }
             else{
               for(int j=0;j<mensajeCifrado.length;j++){
-                if(mensajeComoArreglo==abc){//nuevamente checamos la indexiacion del mensaje y busca igualrse con alguno del abc
+                if(mensajeComoArreglo == abc){
+                    //nuevamente checamos la indexiacion del mensaje y busca igualrse con alguno del abc
                     mensajeCifrado[i]=codigoM[j];
                     
                 }

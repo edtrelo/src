@@ -4,20 +4,12 @@ import Auxiliar.Auxiliar;
 
 import java.util.*;
 
-<<<<<<< HEAD
- public class SuperEnigma {  
-
- 
-
     //Ahorita las clases las pongo en public para poder probarlas
     //Luego hay que cambiarlas
-    public char[] transposition(int clave, String palabra) {
-=======
+
  class SuperEnigma {
 
     protected char[] transposition(int clave, String palabra) {
->>>>>>> 818673c9dcbce857a8f1156f973320b995772ddc
-
         //Nos aseguramos que la clave sea mayor a cero.
         while(clave < 0) {
             Scanner scan = new Scanner(System.in);
