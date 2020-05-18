@@ -1,9 +1,10 @@
 package Cipher;
 
-import Comunication.*;
+import Auxiliar.Auxiliar;
 
 import java.util.*;
 
+<<<<<<< HEAD
  public class SuperEnigma {  
 
  
@@ -11,6 +12,11 @@ import java.util.*;
     //Ahorita las clases las pongo en public para poder probarlas
     //Luego hay que cambiarlas
     public char[] transposition(int clave, String palabra) {
+=======
+ class SuperEnigma {
+
+    protected char[] transposition(int clave, String palabra) {
+>>>>>>> 818673c9dcbce857a8f1156f973320b995772ddc
 
         //Nos aseguramos que la clave sea mayor a cero.
         while(clave < 0) {
@@ -29,30 +35,15 @@ import java.util.*;
             isKeyEven = false;
         }
 
+        boolean isUpper = Auxiliar.isUpperCase(palabra);
+
+        //Pasamos la palabra a minúsculas
+        palabra = palabra.toLowerCase();
+
         //Creamos la palabra como arreglo de chars
         char [] palabraComoArreglo = palabra.toCharArray();
 
-		/*Tendriamos que crear un metodo aparte para checar si una palabra es toda
-		mayusculas y transformarla a minusculas*/
-
         int largoDeLaPalabra = palabra.length();
-
-        boolean isWordUpper = true;
-
-        //Verificamos si la palabra es mayuscula o minuscula
-        for(int x = 0; x < largoDeLaPalabra; x++){
-            if(!Character.isUpperCase(palabraComoArreglo[x])){
-                isWordUpper = false;
-            }
-        }
-
-        //Pasamos todas las palabras a minusculas
-        if(isWordUpper){
-            for(int x = 0; x < largoDeLaPalabra; x++){
-                Character.toLowerCase(palabraComoArreglo[x]);
-            }
-        }
-
 
         char letrasdelABC [] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o',
                 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
@@ -86,18 +77,19 @@ import java.util.*;
             }
         }
 
-        //Volvemos a transformar (si lo hicimos) el char a mayusculas
-
-        if(isWordUpper){
+        //Volvemos a transformar (si lo hicimos) la palabra (ahora cifrada) a mayusculas
+        if(isUpper){
             for(int x = 0; x < arregloCifrado.length; x++){
-                Character.toUpperCase(arregloCifrado[x]);
+                arregloCifrado[x] = Character.toUpperCase(arregloCifrado[x]);
             }
         }
 
         return arregloCifrado;
     }
 
-    public String [] cifradoDePolibioM(int clave, String palabra) {
+    protected String [] cifradoDePolibioM(int clave, String palabra) {
+
+        //NOTA: En vez de que la j sustituyera a la i, aquí sustituimos la w por la v.
 
         //Nos aseguramos que la clave sea mayor a cero.
         while(clave < 0) {
@@ -117,14 +109,13 @@ import java.util.*;
 				{"U","V","X","Y","Z"}};
 
         //Servira para darle las vueltas al abecedario
-        int indiceModuloClave = clave%26 - 1;
 
         String[] arregloClave = new String[5];
 
         //Relleno el arreglo que va a contener los indices de la tabla
         for(int x = 0; x < 5; x++){
             //El arreglo se va a recorrer según la clave
-            arregloClave[x] = abecedario25[indiceModuloClave + x];
+            arregloClave[x] = abecedario25[(x + clave-1)%25];
         }
 
         String codificado [] = new String[palabra.length()];
@@ -146,8 +137,59 @@ import java.util.*;
             }
         }
 
+        //Esto soluciona lo de los símbolos y espacios
+        for (int x = 0; x < codificado.length; x++){
+            if(codificado[x] == null){
+                codificado[x] = String.valueOf(palabra.charAt(x));
+            }
+        }
+
         return codificado;
 
     }
 
+    protected String [] cifradoCesar(int clave, String palabra) {
+
+        //Nos aseguramos que la clave sea mayor a cero.
+        while (clave < 0) {
+            Scanner scan = new Scanner(System.in);
+            System.out.println("La clave debe ser mayor a cero.");
+            clave = scan.nextInt();
+        }
+
+        boolean isUpper = Auxiliar.isUpperCase(palabra);
+        //Pasamos la palabra a arreglo char
+        char[] palabraComoArreglo = palabra.toCharArray();
+
+        int claveCesar = clave % 27; //contamos a la ñ
+
+        String letrasCesar[] = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "Ñ", "O", "P",
+                "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
+
+        String cesarCodificado[] = new String[palabra.length()];
+
+        for (int x = 0; x < palabra.length(); x++) {
+            for (int y = 0; y < letrasCesar.length; y++) {
+                if (String.valueOf(palabraComoArreglo[x]).equalsIgnoreCase(letrasCesar[y])) {
+                    cesarCodificado[x] = letrasCesar[(y + claveCesar) % 27];
+                }
+            }
+        }
+
+        //Esto soluciona lo de los símbolos y espacios
+        for (int x = 0; x < cesarCodificado.length; x++) {
+            if (cesarCodificado[x] == null) {
+                cesarCodificado[x] = String.valueOf(palabra.charAt(x));
+            }
+        }
+
+        //Volvemos a transformar (si lo hicimos) el char a minúsulas
+        if (!isUpper) {
+            for(int x = 0; x < cesarCodificado.length; x++) {
+                cesarCodificado[x] = cesarCodificado[x].toLowerCase();
+            }
+        }
+
+        return cesarCodificado;
+    }
 }
