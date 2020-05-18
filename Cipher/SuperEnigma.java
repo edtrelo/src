@@ -4,7 +4,6 @@ import Comunication.*;
 
 import java.util.*;
 
-
  public class SuperEnigma {  
 
  
