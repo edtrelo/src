@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package FAuxiliares;
+package Cipher;
 
 import java.util.Random;
 
@@ -13,9 +13,10 @@ import java.util.Random;
  */
 public class Clavijero {
 
-    private static final String[] LETTERS = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
+    private static final String[] LETTERS = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L",
+            "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
 
-    String[] clavijero;
+    public String[] clavijero;
 
     /**
      * Al crear un nuevo clavijero, se tendrá un clavijero con el alfabeto en el

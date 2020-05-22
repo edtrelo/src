@@ -7,10 +7,31 @@ public class Chat {
 	
     public static void main(String[] args){
 
+        Clavijero clav = new Clavijero();
+
+        clav.mix(2);
+        String [] clavijeroprueba = clav.clavijero;
+
+        Auxiliar.printArray(clavijeroprueba);
+
+        System.out.println("\n");
+
         Emisor emisor1 = new Emisor("123");
         emisor1.switchAvailable();
-        emisor1.setMensaje("grecia");
-        System.out.println(emisor1.getMensaje());
+        emisor1.setMensaje("hola");
+
+        String[] enigma = emisor1.enigma(2);
+
+        Auxiliar.printArray(enigma);
+
+        System.out.println("\n");
+
+
+
+        String [] palabra = {"h","o", "l", "a"};
+
+        System.out.println(Auxiliar.gimmeWord(palabra));
+
 
         String [] cif1 = emisor1.cifradoDePolibioM(25);
         String [] cif11 = emisor1.cifradoDePolibioM(1);

@@ -16,6 +16,12 @@ public class Auxiliar {
         }
     }
 
+    public static void printArray(int [] arreglo){
+        for(int x = 0; x < arreglo.length; x++){
+            System.out.print(String.valueOf(arreglo[x])+ "\t");
+        }
+    }
+
     //Verificar si una palabra está en mayúsculas (toda la palabra)
     public static boolean isUpperCase(String string){
         char[] charArray = string.toCharArray();
@@ -28,4 +34,39 @@ public class Auxiliar {
         return true;
     }
 
+    public static int [] gimmeIndex(String palabra){
+
+        String [] alfabeto = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L",
+                "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
+
+        int [] indices = new int[palabra.length()];
+
+        for(int x = 0; x < palabra.length(); x ++){
+            for(int y = 0; y < alfabeto.length; y++){
+                if(String.valueOf(palabra.charAt(x)).equalsIgnoreCase(alfabeto[y])){
+                    indices[x] = y;
+                }
+            }
+        }
+
+        return indices;
+    }
+
+    public static String gimmeWord(String[] palabraArray){
+        String palabra = "";
+
+        for(int x = 0; x < palabraArray.length; x++){
+            palabra = palabra + palabraArray[x];
+        }
+
+        return palabra;
+
+    }
+
+    public static String[] recorreArray(String[] array){
+        for(int x = 0; x < array.length; x++){
+            array[x] = array[(x+1)%array.length];
+        }
+        return array;
+    }
 }
