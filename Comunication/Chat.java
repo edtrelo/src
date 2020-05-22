@@ -2,10 +2,17 @@ package Comunication;
 
 import Auxiliar.*;
 import Cipher.*;
+import Decipher.AllTuring;
 
 public class Chat {
 	
     public static void main(String[] args){
+
+        AllTuring al = new AllTuring();
+
+        String[] al11 = al.jumpToN(80, "swomyn wuhnh rgzexniiuop");
+
+        Auxiliar.printArray(al11);
 
         Clavijero clav = new Clavijero();
 
@@ -18,7 +25,7 @@ public class Chat {
 
         Emisor emisor1 = new Emisor("123");
         emisor1.switchAvailable();
-        emisor1.setMensaje("ho4la");
+        emisor1.setMensaje("soy un genio");
 
         String[] enigma = emisor1.enigma(2);
 
@@ -42,7 +49,7 @@ public class Chat {
 
         System.out.println("\n");
 
-        char [] cif2 = emisor1.transposition(2);
+        char [] cif2 = emisor1.transposition(8);
 
         Auxiliar.printArray(cif2);
 

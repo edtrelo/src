@@ -1,8 +1,19 @@
 package Auxiliar;
 
-import Decipher.AllTuring;
-
 public class Auxiliar {
+
+    public static boolean isEven(int a){
+        boolean isEven;
+
+        if(a%2 == 0){
+            isEven = true;
+        }
+        else {
+            isEven = false;
+        }
+
+        return isEven;
+    }
 
     //Método para imprimir arreglo char
     public static void printArray(char [] arreglo){
@@ -57,7 +68,7 @@ public class Auxiliar {
         return indices;
     }
 
-
+    //Regresa como un solo string, una cadena de strings
     public static String gimmeWord(String[] palabraArray){
         String palabra = "";
 
@@ -69,6 +80,7 @@ public class Auxiliar {
 
     }
 
+    //Recorre las posiciones de un array dado
     public static String[] recorreArray(String[] array){
         for(int x = 0; x < array.length; x++){
             array[x] = array[(x+1)%array.length];
@@ -76,6 +88,7 @@ public class Auxiliar {
         return array;
     }
 
+    //Regresa si un símbolo está en el abecedario
     public static boolean isInThere(char a){
         String [] alfabeto = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L",
                 "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};

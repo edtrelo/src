@@ -17,15 +17,9 @@ import java.util.*;
             clave = scan.nextInt();
         }
 
-        boolean isKeyEven; /*Vamos a hacer dos metodos dependiendo si la clave
+        boolean isKeyEven = Auxiliar.isEven(clave);
+        /*Vamos a hacer dos metodos dependiendo si la clave
 		es par o impar*/
-
-        if(clave%2 == 0){
-            isKeyEven = true;
-        }
-        else {
-            isKeyEven = false;
-        }
 
         boolean isUpper = Auxiliar.isUpperCase(palabra);
 
