@@ -18,7 +18,7 @@ public class Chat {
 
         Emisor emisor1 = new Emisor("123");
         emisor1.switchAvailable();
-        emisor1.setMensaje("hola");
+        emisor1.setMensaje("ho4la");
 
         String[] enigma = emisor1.enigma(2);
 

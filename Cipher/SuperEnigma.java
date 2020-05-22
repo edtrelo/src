@@ -190,6 +190,7 @@ import java.util.*;
         String [] alfabeto = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L",
                 "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
 
+        //Este es el arreglo que vamos a regresar.
         String [] palabraEnigma = new String[palabra.length()];
 
         Clavijero clavijero = new Clavijero();
@@ -200,8 +201,13 @@ import java.util.*;
         int[] indices = Auxiliar.gimmeIndex(palabra);
         Auxiliar.printArray(indices);
 
+        //DE PALABRA A CLAVIJERO
         for(int x = 0; x<palabra.length(); x++){
-            palabraEnigma[x] = clavijeroEnigma[indices[x]];
+            if(indices[x]==-1){
+                palabraEnigma[x] = String.valueOf(palabra.charAt(x));
+            }else{
+                palabraEnigma[x] = clavijeroEnigma[indices[x]];
+            }
         }
 
         String [] rotor1 = {"Q", "E", "Z", "I", "P", "L", "O", "F", "S", "N", "B", "J", "V", "U", "A", "Y", "G",
@@ -218,24 +224,41 @@ import java.util.*;
         indices = Auxiliar.gimmeIndex(palabra);
         Auxiliar.printArray(indices);
 
-
         for(int x = 0; x < palabra.length(); x++){
-            palabraEnigma[x] = rotor1[indices[x]];
-            Auxiliar.recorreArray(rotor1);
+            //DE CLAVIJERO A PRIMER ROTOR
+            if(indices[x]==-1){
+                palabraEnigma[x] = String.valueOf(palabra.charAt(x));
+            }else{
+                Auxiliar.recorreArray(rotor1);
+                palabraEnigma[x] = rotor1[indices[x]];
+            }
 
+
+            //DE PRIMER ROTOR A SEGUNDO ROTOR
             //Volvemos a cambiar el arreglo a palabra
             palabra = Auxiliar.gimmeWord(palabraEnigma);
             //Obtenemos los índices de la palabra cifrada que arroja el rotor 1
             indices = Auxiliar.gimmeIndex(palabra);
-            palabraEnigma[x] = rotor2[indices[x]];
-            Auxiliar.recorreArray(rotor2);
+            if(indices[x]==-1){
+                palabraEnigma[x] = String.valueOf(palabra.charAt(x));
+            }else {
+                Auxiliar.recorreArray(rotor2);
+                palabraEnigma[x] = rotor2[indices[x]];
+            }
 
+
+            //DE SEGUNDO ROTOR A TERCER ROTOR
             //Volvemos a cambiar el arreglo a palabra
             palabra = Auxiliar.gimmeWord(palabraEnigma);
             //Obtenemos los índices de la palabra cifrada que arroja el rotor 2
             indices = Auxiliar.gimmeIndex(palabra);
-            palabraEnigma[x] = rotor3[indices[x]];
-            Auxiliar.recorreArray(rotor3);
+            if(indices[x]==-1){
+                palabraEnigma[x] = String.valueOf(palabra.charAt(x));
+            }else {
+                Auxiliar.recorreArray(rotor3);
+                palabraEnigma[x] = rotor3[indices[x]];
+            }
+
         }
 
         return palabraEnigma;
