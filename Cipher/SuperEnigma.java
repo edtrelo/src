@@ -144,10 +144,11 @@ import java.util.*;
         }
 
         boolean isUpper = Auxiliar.isUpperCase(palabra);
+
         //Pasamos la palabra a arreglo char
         char[] palabraComoArreglo = palabra.toCharArray();
 
-        int claveCesar = clave % 27; //contamos a la ñ
+        int claveCesar = clave % 27;
 
         String letrasCesar[] = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "Ñ", "O", "P",
                 "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};

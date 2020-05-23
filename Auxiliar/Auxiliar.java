@@ -124,6 +124,7 @@ public class Auxiliar {
         return bul;
     }
 
+    //Para verificar si un entero está en un arreglo de enteros
     public static boolean isInThere(int numero, int[] array){
         boolean isInThere = false;
 

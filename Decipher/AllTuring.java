@@ -171,7 +171,16 @@ public class AllTuring {
 
             //Transformamos los chars en Strings
             for(int x = 0; x < palabraToReturn.length; x++){
-                palabraToReturn[x] = String.valueOf(papa[x]);
+                //Si la palabra no era mayúsculas, la haremos mayúsculas
+                if(!Auxiliar.isUpperCase(palabraSinSimbolos)){
+                    if(Auxiliar.isInThere(papa[x])){
+                        palabraToReturn[x] = String.valueOf(papa[x]).toLowerCase();
+                    }else{
+                        palabraToReturn[x] = String.valueOf(papa[x]);
+                    }
+                }else{
+                    palabraToReturn[x] = String.valueOf(papa[x]);
+                }
             }
 
             return palabraToReturn;
@@ -186,5 +195,50 @@ public class AllTuring {
             return palabraToReturn;
         }
 
+    }
+
+    public String[] cesarFall(int clave, String palabra){
+
+        //Nos aseguramos que la clave sea mayor a cero.
+        while (clave < 0) {
+            Scanner scan = new Scanner(System.in);
+            System.out.println("La clave debe ser mayor a cero.");
+            clave = scan.nextInt();
+        }
+
+        String letrasCesar[] = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "Ñ", "O", "P",
+                "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
+
+        int claveCesar = clave % 27;
+        char [] palabraComoArreglo = palabra.toCharArray();
+        String[] cesarDecodificado= new String[palabra.length()];
+
+        for (int x = 0; x < palabra.length(); x++) {
+            for (int y = 0; y < letrasCesar.length; y++) {
+                if (String.valueOf(palabraComoArreglo[x]).equalsIgnoreCase(letrasCesar[y])) {
+                    cesarDecodificado[x] = letrasCesar[(y - claveCesar) % 27];
+                }
+            }
+        }
+
+        //Esto soluciona lo de los símbolos y espacios
+        for (int x = 0; x < cesarDecodificado.length; x++) {
+            if (cesarDecodificado[x] == null) {
+                cesarDecodificado[x] = String.valueOf(palabra.charAt(x));
+            }
+        }
+
+        //Volvemos a transformar  a minúsulas
+        if (!Auxiliar.isUpperCase(palabra)) {
+            for(int x = 0; x < cesarDecodificado.length; x++) {
+                if(!Auxiliar.isInThere(palabra.charAt(x))){
+                    cesarDecodificado[x] = String.valueOf(palabra.charAt(x));
+                }else{
+                    cesarDecodificado[x] = cesarDecodificado[x].toUpperCase();
+                }
+            }
+        }
+
+        return cesarDecodificado;
     }
 }

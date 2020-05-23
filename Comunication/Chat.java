@@ -10,7 +10,7 @@ public class Chat {
 
         AllTuring al = new AllTuring();
 
-        String[] al22 = al.contraPolibio(4, "$EEGF$DHDFEG$DD");
+        String[] al22 = al.cesarFall(4, "$KYEHEO7ENEVE");
 
         Auxiliar.printArray(al22);
 
@@ -18,9 +18,9 @@ public class Chat {
 
         em.switchAvailable();
 
-        em.setMensaje("GRECIA");
+        em.setMensaje("GUADALAJARA");
 
-        String[] polibio = em.cifradoDePolibioM(4);
+        String[] polibio = em.cifradoCesar(4);
 
         Auxiliar.printArray(polibio);
 
