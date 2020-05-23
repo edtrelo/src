@@ -10,53 +10,18 @@ public class Chat {
 
         AllTuring al = new AllTuring();
 
-        String[] al11 = al.jumpToN(80, "swomyn wuhnh rgzexniiuop");
+        String[] al22 = al.contraPolibio(4, "EEGFDHDFEGDD");
 
-        Auxiliar.printArray(al11);
+        Emisor em = new Emisor("1234");
 
-        Clavijero clav = new Clavijero();
+        em.switchAvailable();
 
-        clav.mix(2);
-        String [] clavijeroprueba = clav.clavijero;
+        em.setMensaje("GRECIA");
 
-        Auxiliar.printArray(clavijeroprueba);
+        String[] polibio = em.cifradoDePolibioM(4);
 
-        System.out.println("\n");
+        Auxiliar.printArray(polibio);
 
-        Emisor emisor1 = new Emisor("123");
-        emisor1.switchAvailable();
-        emisor1.setMensaje("soy un genio");
-
-        String[] enigma = emisor1.enigma(2);
-
-        Auxiliar.printArray(enigma);
-
-        System.out.println("\n");
-
-
-
-        String [] palabra = {"h","o", "l", "a"};
-
-        System.out.println(Auxiliar.gimmeWord(palabra));
-
-
-        String [] cif1 = emisor1.cifradoDePolibioM(25);
-        String [] cif11 = emisor1.cifradoDePolibioM(1);
-
-        Auxiliar.printArray(cif1);
-        System.out.println("\n");
-        Auxiliar.printArray(cif11);
-
-        System.out.println("\n");
-
-        char [] cif2 = emisor1.transposition(8);
-
-        Auxiliar.printArray(cif2);
-
-        String [] cif3 = emisor1.cifradoCesar(3);
-
-        System.out.println("\n");
-        Auxiliar.printArray(cif3);
 
 
 

@@ -2,6 +2,7 @@ package Auxiliar;
 
 public class Auxiliar {
 
+    //Regresa true si el numero es par
     public static boolean isEven(int a){
         boolean isEven;
 
@@ -68,6 +69,23 @@ public class Auxiliar {
         return indices;
     }
 
+    public static int gimmeIndex(String palabra, String [] array){
+
+        int indice = 0;
+
+        for(int x = 0; x < palabra.length(); x ++){
+            for(int y = 0; y < array.length; y++){
+                if(String.valueOf(palabra.charAt(x)).equalsIgnoreCase(array[y])){
+                    indice = y;
+                }else if(!Auxiliar.isInThere(palabra.charAt(x))){
+                    indice = -1;
+                }
+            }
+        }
+
+        return indice;
+    }
+
     //Regresa como un solo string, una cadena de strings
     public static String gimmeWord(String[] palabraArray){
         String palabra = "";
@@ -101,5 +119,29 @@ public class Auxiliar {
         }
 
         return bul;
+    }
+
+    public static boolean isInThere(int numero, int[] array){
+        boolean isInThere = false;
+
+        for (int element : array) {
+            if (element == numero) {
+                isInThere = true;
+            }
+        }
+
+        return isInThere;
+    }
+
+    public static boolean isInThere(String a, String [] array){
+        boolean isInThere = false;
+
+        for (int x = 0; x < array.length; x++) {
+            if (a.equalsIgnoreCase(array[x])) {
+                isInThere = true;
+            }
+        }
+
+        return isInThere;
     }
 }
