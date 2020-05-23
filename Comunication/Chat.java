@@ -10,7 +10,7 @@ public class Chat {
 
         AllTuring al = new AllTuring();
 
-        String[] al22 = al.cesarFall(4, "$KYEHEO7ENEVE");
+        String[] al22 = al.cesarFall(29, "IWCFCNCLCTC");
 
         Auxiliar.printArray(al22);
 
@@ -18,15 +18,15 @@ public class Chat {
 
         em.switchAvailable();
 
-        em.setMensaje("GUADALAJARA");
+        em.setMensaje("GRECIA");
 
-        String[] polibio = em.cifradoCesar(4);
+        String[] polibio = em.cifradoCesar(29);
 
         Auxiliar.printArray(polibio);
 
+        String[] emjois = em.cifradoCesarEmoji(1);
 
-
-
+        Auxiliar.printArray(emjois);
     }
 
 }

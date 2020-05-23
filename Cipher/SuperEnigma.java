@@ -180,6 +180,55 @@ import java.util.*;
         return cesarCodificado;
     }
 
+    protected String [] cifradoCesarEmoji(int clave, String palabra){
+
+        //Nos aseguramos que la clave sea mayor a cero.
+        while (clave < 0) {
+            Scanner scan = new Scanner(System.in);
+            System.out.println("La clave debe ser mayor a cero.");
+            clave = scan.nextInt();
+        }
+
+        //Pasamos la palabra a arreglo char
+        char[] palabraComoArreglo = palabra.toCharArray();
+
+        int claveCesar = clave % 27;
+
+        String letrasCesar[] = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "Ñ", "O", "P",
+                "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
+
+        String [] emojisDelCesar = new String[27];
+
+        //Creamos el arreglo con los primeros 27 emojis
+        for(int x = 0; x < emojisDelCesar.length; x++) {
+            int indice = x + 128512; //Es el número equvalente al primer emoji
+            String hex = Integer.toHexString(indice);
+            emojisDelCesar[x] = String.valueOf(Character.toChars(Integer.parseInt(hex, 16)));
+        }
+
+        Auxiliar.printArray(emojisDelCesar);
+
+        //Este es el arreglo que vamos a regresar
+        String [] cesarCodificado = new String[palabra.length()];
+
+        for (int x = 0; x < palabra.length(); x++) {
+            for (int y = 0; y < letrasCesar.length; y++) {
+                if (String.valueOf(palabraComoArreglo[x]).equalsIgnoreCase(letrasCesar[y])) {
+                    cesarCodificado[x] = emojisDelCesar[(y + claveCesar) % 27];
+                }
+            }
+        }
+
+        //Esto soluciona lo de los símbolos y espacios
+        for (int x = 0; x < cesarCodificado.length; x++) {
+            if (cesarCodificado[x] == null) {
+                cesarCodificado[x] = String.valueOf(palabra.charAt(x));
+            }
+        }
+
+        return cesarCodificado;
+    }
+
     protected String [] enigma(int clave, String palabra){
 
         String [] alfabeto = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L",

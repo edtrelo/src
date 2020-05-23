@@ -35,9 +35,12 @@ public class Emisor extends SuperEnigma{
 
     public String[] cifradoCesar(int clave){return super.cifradoCesar(clave, this.mensaje);}
 
+    public String[] cifradoCesarEmoji(int clave){return super.cifradoCesarEmoji(clave, this.mensaje);}
+
     public String[] enigma(int clave){
         return super.enigma(clave, this.mensaje);
     }
+
 
     //-------Fin: Métodos-----------------------------------------------------------------
 
