@@ -10,7 +10,9 @@ public class Chat {
 
         AllTuring al = new AllTuring();
 
-        String[] al22 = al.contraPolibio(4, "EEGFDHDFEGDD");
+        String[] al22 = al.contraPolibio(4, "$EEGF$DHDFEG$DD");
+
+        Auxiliar.printArray(al22);
 
         Emisor em = new Emisor("1234");
 

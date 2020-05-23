@@ -21,6 +21,7 @@ public class Auxiliar {
         for(int x = 0; x < arreglo.length; x++){
             System.out.print(arreglo[x]);
         }
+        System.out.println("\n");
     }
 
     //Método para imprimir arreglo String
@@ -28,12 +29,14 @@ public class Auxiliar {
         for(int x = 0; x < arreglo.length; x++){
             System.out.print(arreglo[x]);
         }
+        System.out.println("\n");
     }
 
     public static void printArray(int [] arreglo){
         for(int x = 0; x < arreglo.length; x++){
             System.out.print(String.valueOf(arreglo[x])+ "\t");
         }
+        System.out.println("\n");
     }
 
     //Verificar si una palabra está en mayúsculas (toda la palabra)
@@ -133,11 +136,11 @@ public class Auxiliar {
         return isInThere;
     }
 
-    public static boolean isInThere(String a, String [] array){
+    public static boolean isInThere(char a, String [] array){
         boolean isInThere = false;
 
         for (int x = 0; x < array.length; x++) {
-            if (a.equalsIgnoreCase(array[x])) {
+            if (String.valueOf(a).equalsIgnoreCase(array[x])) {
                 isInThere = true;
             }
         }
