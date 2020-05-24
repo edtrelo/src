@@ -13,7 +13,7 @@ public class Chat {
 
         em.switchAvailable();
 
-        em.setMensaje("Hola$");
+        em.setMensaje("Grecia");
 
         String[] polibio = em.cifradoCesarEmoji(29);
 
@@ -21,17 +21,13 @@ public class Chat {
 
         AllTuring al = new AllTuring();
 
-        String[] al22 = al.cesarFall(29, "IWCFCNCLCTC");
+        String[] al22 = al.cesarEmojiFall(29, "\uD83D\uDE08\uD83D\uDE14\uD83D\uDE06\uD83D\uDE04\uD83D\uDE0A\uD83D\uDE02");
 
         Auxiliar.printArray(al22);
-
 
         String[] gg = em.HASH();
 
         Auxiliar.printArray(gg);
-
-
-
 
 
     }

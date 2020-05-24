@@ -3,6 +3,7 @@ package Decipher;
 import Auxiliar.Auxiliar;
 import com.sun.jdi.event.StepEvent;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class AllTuring {
@@ -488,6 +489,81 @@ public class AllTuring {
                 }else{
                     cesarDecodificado[x] = cesarDecodificado[x].toUpperCase();
                 }
+            }
+        }
+
+        return cesarDecodificado;
+    }
+
+    public String[] cesarEmojiFall(int clave, String palabra){
+
+        //Nos aseguramos que la clave sea mayor a cero.
+        while (clave < 0) {
+            Scanner scan = new Scanner(System.in);
+            System.out.println("La clave debe ser mayor a cero.");
+            clave = scan.nextInt();
+        }
+
+        String letrasCesar[] = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "Ñ", "O", "P",
+                "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
+
+        int claveCesar = clave % 27;
+        char [] palabraComoArreglo = palabra.toCharArray();
+        String[] cesarDecodificado= new String[palabra.length()/2];
+
+        String [] emojisDelCesar = new String[27];
+
+        //Creamos el arreglo con los primeros 27 emojis
+        for(int x = 0; x < emojisDelCesar.length; x++) {
+            int indice = x + 128512; //Es el número equvalente al primer emoji
+            String hex = Integer.toHexString(indice);
+            emojisDelCesar[x] = String.valueOf(Character.toChars(Integer.parseInt(hex, 16)));
+        }
+
+        //Aquí almacenaremos los emojis que forman la palabra
+        //la longuitud es sobre dos porque cada dos caracteres forman un emoji
+        String [] emojis = new String[palabra.length()/2];
+
+        for (int x = 0; x < emojis.length; x++) {
+            emojis[x] = new StringBuilder().appendCodePoint(
+                    palabra.codePointAt(palabra.offsetByCodePoints(0, x))).toString();
+        }
+
+        //Creamos un arreglo para llenarlo de los hash codes de los emojis. Estos son los que usaremos para comparar
+        int [] hashCodesPalabra = new int[emojis.length];
+
+        for (int x = 0; x < hashCodesPalabra.length; x++) {
+            hashCodesPalabra[x] = emojis[x].hashCode();
+        }
+
+        //Hacemos lo mismo con los emojis del Cesar
+        int [] hashCodesEmojis = new int[emojisDelCesar.length];
+
+        for (int x = 0; x < hashCodesEmojis.length; x++) {
+            hashCodesEmojis[x] = emojisDelCesar[x].hashCode();
+        }
+
+        /*Verificamos cuáles hash codes coinciden y al emoji del arreglo de 27 con el que coincida, le asignamos
+        el valor del arreglo del alfabeto que este en ese índice
+         */
+        for(int x = 0; x < hashCodesPalabra.length; x++){
+            for (int y = 0; y < emojisDelCesar.length; y++){
+                if(hashCodesPalabra[x] == hashCodesEmojis[y]){
+                    int recorrido = (y-2)%27;
+                    if(recorrido<0){
+                        recorrido = recorrido + 27;
+                    }
+                    cesarDecodificado[x] = letrasCesar[recorrido];
+                }
+            }
+        }
+
+        Auxiliar.printArray(cesarDecodificado);
+
+        //Esto soluciona lo de los símbolos y espacios
+        for (int x = 0; x < cesarDecodificado.length; x++) {
+            if (cesarDecodificado[x] == null) {
+                cesarDecodificado[x] = String.valueOf(palabra.charAt(x));
             }
         }
 
