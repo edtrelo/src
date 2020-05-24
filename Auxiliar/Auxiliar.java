@@ -103,9 +103,12 @@ public class Auxiliar {
 
     //Recorre las posiciones de un array dado
     public static String[] recorreArray(String[] array){
-        for(int x = 0; x < array.length; x++){
-            array[x] = array[(x+1)%array.length];
+        String temp = array[0]; //Este es el primer elemento y es el que pondremos al último
+        for(int x = 0; x < array.length - 1; x++){
+            array[x] = array[x+1]; //at index=0 put A[1]..and so on.
         }
+        //Colocamos el primer elemento en el último lugar
+        array[array.length-1] = temp;
         return array;
     }
 

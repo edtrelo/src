@@ -13,15 +13,21 @@ public class Chat {
 
         em.switchAvailable();
 
-        em.setMensaje("Grecia");
+        em.setMensaje("Zoologico");
 
-        String[] polibio = em.cifradoCesarEmoji(29);
+        String[] polibio = em.cifradoCesar(3);
+
+        String[] eneigma = em.enigma(2);
+
+        Auxiliar.printArray(eneigma);
 
         Auxiliar.printArray(polibio);
 
         AllTuring al = new AllTuring();
 
-        String[] al22 = al.cesarEmojiFall(29, "\uD83D\uDE08\uD83D\uDE14\uD83D\uDE06\uD83D\uDE04\uD83D\uDE0A\uD83D\uDE02");
+        String[] al22 = al.cesarEmojiFall(29,
+                "\uD83D\uDE08\uD83D\uDE17\uD83D\uDE02\uD83D\uDE05\uD83D" +
+                        "\uDE02\uD83D\uDE0D\uD83D\uDE02\uD83D\uDE0B\uD83D\uDE02\uD83D\uDE14\uD83D\uDE02");
 
         Auxiliar.printArray(al22);
 

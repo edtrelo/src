@@ -163,6 +163,7 @@ import java.util.*;
             }
         }
 
+
         //Esto soluciona lo de los símbolos y espacios
         for (int x = 0; x < cesarCodificado.length; x++) {
             if (cesarCodificado[x] == null) {
@@ -241,7 +242,6 @@ import java.util.*;
         //Este es el clavijero que usaremos
         String [] clavijeroEnigma = clavijero.clavijero;
         int[] indices = Auxiliar.gimmeIndex(palabra);
-        Auxiliar.printArray(indices);
 
         //DE PALABRA A CLAVIJERO
         for(int x = 0; x<palabra.length(); x++){
@@ -264,15 +264,14 @@ import java.util.*;
         palabra = Auxiliar.gimmeWord(palabraEnigma);
         //Obtengo los índices de la palabra
         indices = Auxiliar.gimmeIndex(palabra);
-        Auxiliar.printArray(indices);
 
         for(int x = 0; x < palabra.length(); x++){
             //DE CLAVIJERO A PRIMER ROTOR
             if(indices[x]==-1){
                 palabraEnigma[x] = String.valueOf(palabra.charAt(x));
-            }else{
-                Auxiliar.recorreArray(rotor1);
+            }else {
                 palabraEnigma[x] = rotor1[indices[x]];
+                Auxiliar.recorreArray(rotor1);
             }
 
 
@@ -284,8 +283,8 @@ import java.util.*;
             if(indices[x]==-1){
                 palabraEnigma[x] = String.valueOf(palabra.charAt(x));
             }else {
-                Auxiliar.recorreArray(rotor2);
                 palabraEnigma[x] = rotor2[indices[x]];
+                Auxiliar.recorreArray(rotor2);
             }
 
 
@@ -297,16 +296,16 @@ import java.util.*;
             if(indices[x]==-1){
                 palabraEnigma[x] = String.valueOf(palabra.charAt(x));
             }else {
-                Auxiliar.recorreArray(rotor3);
                 palabraEnigma[x] = rotor3[indices[x]];
+                Auxiliar.recorreArray(rotor3);
             }
-
         }
+
 
         return palabraEnigma;
     }
 
-    protected String[] HASH (String palabra){
+    protected String[] HASH(String palabra){
 
         int[] indices = new int[palabra.length()];
 
