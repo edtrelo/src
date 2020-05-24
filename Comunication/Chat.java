@@ -13,9 +13,9 @@ public class Chat {
 
         em.switchAvailable();
 
-        em.setMensaje("Zoologico");
+        em.setMensaje("Guadalajara");
 
-        String[] polibio = em.cifradoCesar(3);
+        String[] polibio = em.cifradoCesarEmoji(3);
 
         String[] eneigma = em.enigma(2);
 
@@ -34,6 +34,10 @@ public class Chat {
         String[] gg = em.HASH();
 
         Auxiliar.printArray(gg);
+
+        String [] roo = al.breakHASH(gg);
+
+        Auxiliar.printArray(roo);
 
 
     }

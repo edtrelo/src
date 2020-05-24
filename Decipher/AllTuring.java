@@ -570,4 +570,29 @@ public class AllTuring {
         return cesarDecodificado;
     }
 
+    public String[] breakHASH(String[] palabra){
+
+        int[] indices = new int[27];
+
+        for(int x = 1; x < 28; x++){
+            indices[x-1] = x;
+        }
+
+        String [] alfabeto = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L",
+                "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
+
+        String [] hash = new String[palabra.length];
+
+        //tranformamos todos los strings a números
+        for(int x = 0; x < palabra.length; x++){
+            if(Auxiliar.isInThere(Integer.parseInt(palabra[x]), indices)){
+                hash[x] = alfabeto[Integer.parseInt(palabra[x])-1];
+            }else {
+                hash[x] = palabra[x];
+            }
+        }
+
+        return hash;
+    }
+
 }
