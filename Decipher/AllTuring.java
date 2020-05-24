@@ -420,7 +420,11 @@ public class AllTuring {
         for (int x = 0; x < palabra.length(); x++) {
             for (int y = 0; y < letrasCesar.length; y++) {
                 if (String.valueOf(palabraComoArreglo[x]).equalsIgnoreCase(letrasCesar[y])) {
-                    cesarDecodificado[x] = letrasCesar[(y - claveCesar) % 27];
+                    int recorrido = (y-claveCesar)%27;
+                    if (recorrido < 0){
+                        recorrido = recorrido + 27;
+                    }
+                    cesarDecodificado[x] = letrasCesar[recorrido];
                 }
             }
         }
@@ -469,7 +473,11 @@ public class AllTuring {
         for (int x = 0; x < palabra.length(); x++) {
             for (int y = 0; y < letrasCesar.length; y++) {
                 if (String.valueOf(palabraComoArreglo[x]).equalsIgnoreCase(letrasCesar[y])) {
-                    cesarDecodificado[x] = letrasCesar[(y - claveCesar) % 27];
+                    int recorrido = (y-claveCesar)%27;
+                    if (recorrido < 0){
+                        recorrido = recorrido + 27;
+                    }
+                    cesarDecodificado[x] = letrasCesar[recorrido];
                 }
             }
         }
