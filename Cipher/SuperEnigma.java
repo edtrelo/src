@@ -206,8 +206,6 @@ import java.util.*;
             emojisDelCesar[x] = String.valueOf(Character.toChars(Integer.parseInt(hex, 16)));
         }
 
-        Auxiliar.printArray(emojisDelCesar);
-
         //Este es el arreglo que vamos a regresar
         String [] cesarCodificado = new String[palabra.length()];
 
@@ -306,6 +304,26 @@ import java.util.*;
         }
 
         return palabraEnigma;
+    }
+
+    protected String[] HASH (String palabra){
+
+        int[] indices = new int[palabra.length()];
+
+        indices = Auxiliar.gimmeIndex(palabra);
+
+        String [] palabraHash = new String[palabra.length()];
+
+        for(int x = 0; x < palabra.length(); x++){
+            if(indices[x]>= 0){
+                palabraHash[x] = String.valueOf(indices[x]+1);
+            }else {
+                palabraHash[x] = String.valueOf(palabra.charAt(x));
+            }
+        }
+
+        return palabraHash;
+
     }
 
 }

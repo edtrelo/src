@@ -8,25 +8,32 @@ public class Chat {
 	
     public static void main(String[] args){
 
+
+        Emisor em = new Emisor("1234");
+
+        em.switchAvailable();
+
+        em.setMensaje("Hola$");
+
+        String[] polibio = em.cifradoCesarEmoji(29);
+
+        Auxiliar.printArray(polibio);
+
         AllTuring al = new AllTuring();
 
         String[] al22 = al.cesarFall(29, "IWCFCNCLCTC");
 
         Auxiliar.printArray(al22);
 
-        Emisor em = new Emisor("1234");
 
-        em.switchAvailable();
+        String[] gg = em.HASH();
 
-        em.setMensaje("GRECIA");
+        Auxiliar.printArray(gg);
 
-        String[] polibio = em.cifradoCesar(29);
 
-        Auxiliar.printArray(polibio);
 
-        String[] emjois = em.cifradoCesarEmoji(1);
 
-        Auxiliar.printArray(emjois);
+
     }
 
 }

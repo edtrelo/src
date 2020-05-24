@@ -41,6 +41,10 @@ public class Emisor extends SuperEnigma{
         return super.enigma(clave, this.mensaje);
     }
 
+    public String[] HASH(){
+        return super.HASH(this.mensaje);
+    }
+
 
     //-------Fin: Métodos-----------------------------------------------------------------
 
