@@ -18,6 +18,7 @@ public class Prueba_cMorse {
                 'á', 'é', 'í', 'ó', 'ú', '.', ',', '?', '!', '(', ')', '[', ']', '&', ':', ';', '=', '+', '-', '_', '$', '@'};
 
         char[] mensajeComoArreglo = mensaje.toCharArray();
+
         String[] codigoM = new String[58];
         codigoM[0] = " .- ";        // a
         codigoM[1] = " -... ";        // b
@@ -80,16 +81,21 @@ public class Prueba_cMorse {
 
         //aqui me estoy dando de topes para el codigo
 
+        //Transformamos todos los chars a Strings
+        String [] abc2 = new String[abc.length];
+
+        for(int x = 0; x < abc2.length; x++){
+            abc2[x] = String.valueOf(abc[x]);
+        }
+
 
         //depues de la primera letra, sale la letra decifrada de una letra antes del abc
         String[] mensajeCifrado = new String[mensaje.length()];
 
         for (int i = 0; i < mensajeComoArreglo.length; i++) {
-            for (int j = 0; j < abc.length; j++) {
-                if (Auxiliar.isInThere(mensaje.charAt(i), abc)) {//Aqui se checa que la palabra se ecnuentre en el abc
+            for (int j = 0; j < abc2.length; j++) {
+                if (abc2[j].equalsIgnoreCase(String.valueOf(mensajeComoArreglo[i]))) {//Aqui se checa que la palabra se ecnuentre en el abc
                     mensajeCifrado[i] = codigoM[j];//Aqui ya se convierte cada palabra en Cmorse
-                } else {
-                    mensajeCifrado[i] = String.valueOf(mensaje.charAt(i));
                 }
             }
         }
