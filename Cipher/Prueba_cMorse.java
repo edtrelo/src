@@ -5,7 +5,7 @@ package Cipher;
 import Auxiliar.Auxiliar;
 
 public class Prueba_cMorse {
-
+    
     public String[] cMorse(String mensaje) {
 //        clave = (int) (Math.random() * 10);
 
@@ -35,6 +35,31 @@ public class Prueba_cMorse {
         codigoM[12] = " - ";        // m
         codigoM[13] = " -. ";        // n
         codigoM[14] = " --- ";        // o
+=======
+    public String[] cMorse( String mensaje) {
+
+        char[] abc = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o',
+            'p','q','r','s','t','u','v','w','x','y','z','0','1','2','3','4','5','6','7','8','9',
+            'á','é','í','ó','ú','.',',','?','!','(',')','[',']','&',':',';', '=', '+', '-','_', '$', '@'};
+        
+        char[] mensajeComoArreglo = mensaje.toCharArray();             
+        String[] codigoM = new String[58];
+        codigoM[0] = " .- "; 		// a
+        codigoM[1] = " -... ";		// b
+        codigoM[2] = " -.-. ";		// c
+        codigoM[3] = " - .. ";		// d
+        codigoM[4] = " . ";		// e
+        codigoM[5] = " ..-. ";		// f
+        codigoM[6] = " -. ";		// g
+        codigoM[7] = " .... ";		// h
+        codigoM[8] = " .. ";		// i
+        codigoM[9] = " .--- ";		// j
+        codigoM[10] = " -.- ";		// k
+        codigoM[11] = " .-.. ";        // l
+        codigoM[12] = " - ";		// m
+        codigoM[13] = " -. ";		// n
+        codigoM[14] = " --- ";		// o
+>>>>>>> refs/remotes/origin/master
         codigoM[15] = " .--. ";         // p
         codigoM[16] = " --.- ";         // q
         codigoM[17] = " .-. ";        // r
@@ -74,6 +99,7 @@ public class Prueba_cMorse {
         codigoM[51] = " -.-.-. ";    // ;
         codigoM[52] = " -...- ";        // =
         codigoM[53] = " .-.-. ";        // +
+<<<<<<< HEAD
         codigoM[54] = " -....- ";    // -
         codigoM[55] = " .. - .- ";    // _
         codigoM[56] = " ...-..- ";    // $
@@ -104,6 +130,30 @@ public class Prueba_cMorse {
         String[] hola = {"hola"};
 
         return hola;
+=======
+        codigoM[54] = " -....- ";	// -
+        codigoM[55] = " .. - .- ";	// _
+        codigoM[56] = " ...-..- ";	// $
+        codigoM[57] = " . - .-. ";	// @   
+
+        
+        
+        
+        String[] a = null;
+  
+  String mensajeCifrado;
+    for(int i=0;i<mensajeComoArreglo.length;i++){
+        for(int j=0;j<abc.length;j++){
+              if(mensajeComoArreglo[i]==abc[j]){//Aqui se checa que la palabra se ecnuentre en el abc
+               mensajeCifrado=codigoM[j];//Aqui ya se convierte cada palabra en Cmorse
+                  System.out.print(mensajeCifrado);//Aqui imprime cada resultado
+              }
+        }System.out.println("");
+    }
+       // String[] cifradoComoArr=mensajeCifrado; //Aqui intento convertir el resultado en un arreglo
+    // la cuestion es que el resultado lo devuelve en un string, lo que me estuvo tardando y tardando es que no
+    // puedo convertirlo en arreglo
+        return a;
         //aun no retorno nada
         }
     }
