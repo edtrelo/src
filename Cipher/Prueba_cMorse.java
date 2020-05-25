@@ -4,16 +4,17 @@ package Cipher;
 
 public class Prueba_cMorse {
 
-    //public String[] cMorse( String mensaje) {
+    public String[] cMorse( String mensaje) {
 //        clave = (int) (Math.random() * 10);
         //creamos un alfabeto para basarnos con cual corresponde
-       /* char[] abc = {'a','b','c','d','e','f','g','h','i','j','l','m','n','o',
+        char[] abc = {'a','b','c','d','e','f','g','h','i','j','l','m','n','o',
             'p','q','r','s','t','u','v','w','x','y','z','0','1','2','3','4','5','6','7','8','9',
             'á','é','í','ó','ú','.',',','?','!','(',')','[',']','&',':',';', '=', '+', '-','_', '$', '@'};
         
         char[] mensajeComoArreglo = mensaje.toCharArray();
-        int largoDelMensaje=mensaje.length();
-        String mensajeCifrado[]=new String[largoDelMensaje];
+//        int largoDelMensaje=mensaje.length();
+        
+        
         
         String[] codigoM = new String[58];
         codigoM[0] = " .- "; 		// a
@@ -74,32 +75,23 @@ public class Prueba_cMorse {
         codigoM[55] = " .. - .- ";	// _
         codigoM[56] = " ...-..- ";	// $
         codigoM[57] = " . - .-. ";	// @   
-  //aqui me estoy dando de topes para el codigo      
- 
-  String[] diagonal={"/"};      
-  String[] morse={" "};
- 
-        for(int x = 0; x<mensajeCifrado.length;x++){
-            
-        }
-        
-        for(int i=0;i<largoDelMensaje;i++){
-            if(mensaje.charAt(i)==' '){//aqui corroboramos los espacios y el chartAt es para darle indexizacion al mensaje
-              morse = mensajeCifrado + morse;
-            }
-            else{
-              for(int j=0;j<mensajeCifrado.length;j++){
-                if(mensajeComoArreglo == abc){
-                    //nuevamente checamos la indexiacion del mensaje y busca igualrse con alguno del abc
-                    mensajeCifrado[i]=codigoM[j];
-                    
-                }
-              }  
-            }
-            
-        }
-        
-        
+  //aqui me estoy dando de topes para el codigo
+  String[] a = null;
+  
+  //depues de la primera letra, sale la letra decifrada de una letra antes del abc
+  String mensajeCifrado;
+    for(int i=0;i<mensajeComoArreglo.length;i++){
+        for(int j=0;j<abc.length;j++){
+              if(mensajeComoArreglo[i]==abc[j]){//Aqui se checa que la palabra se ecnuentre en el abc
+               mensajeCifrado=codigoM[j];//Aqui ya se convierte cada palabra en Cmorse
+                  System.out.print(mensajeCifrado);//Aqui imprime cada resultado
+              }
+        }System.out.println("");
+    }
+       // String[] cifradoComoArr=mensajeCifrado; //Aqui intento convertir el resultado en un arreglo
+    // la cuestion es que el resultado lo devuelve en un string, lo que me estuvo tardando y tardando es que no
+    //no puedo convertirlo en arreglo
+        return a;
         //aun no retorno nada
-    }*/
+    }
 }
