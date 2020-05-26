@@ -17,7 +17,7 @@ public class Chat {
         Auxiliar.printArray(emoticones);
 
         String [] cesarin = em.cifradoCesar(8);
-        String [] enigma = em.enigma(4);
+        String [] enigma = em.enigma(2);
         Auxiliar.printArray(enigma);
 
         AllTuring al = new AllTuring();
@@ -26,7 +26,7 @@ public class Chat {
 
         String [] dul = al.cesarFall(8, cesarin);
 
-        String [] hue = al.bombe(4, "Hola$");
+        String [] hue = al.bombe(2, "FUGO$");
 
         Prueba_cMorse prueba = new Prueba_cMorse();
 

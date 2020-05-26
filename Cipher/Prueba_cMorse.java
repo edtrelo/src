@@ -120,7 +120,7 @@ public class Prueba_cMorse {
             abc2[x] = String.valueOf(abc[x]);
         }
 
-        //depues de la primera letra, sale la letra decifrada de una letra antes del abc
+        //Aquí guardaremos el mensaje cifrado
         String[] mensajeCifrado = new String[mensaje.length()];
 
         for (int i = 0; i < mensajeComoArreglo.length; i++) {
