@@ -1,7 +1,6 @@
 package Decipher;
 
 import Auxiliar.Auxiliar;
-import com.sun.jdi.event.StepEvent;
 
 import java.util.Arrays;
 import java.util.Scanner;
