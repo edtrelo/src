@@ -28,13 +28,6 @@ public class Chat {
 
         String [] hue = al.bombe(2, "FUGO$");
 
-        Prueba_cMorse prueba = new Prueba_cMorse();
-
-        String [] morse = prueba.cMorse("Pr ueñba");
-
-        Auxiliar.printArray(morse);
-
-        System.out.println(morse[2]);
 
     }
 
