@@ -1,16 +1,7 @@
 package Decipher;
 
 import Auxiliar.Auxiliar;
-<<<<<<< HEAD
-<<<<<<< HEAD
 import Cipher.Clavijero;
-import com.sun.jdi.event.StepEvent;
-=======
->>>>>>> a0d219993c5d9bf352f54722ea9e0ef296490617
-=======
->>>>>>> refs/remotes/origin/master
-
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class AllTuring {
