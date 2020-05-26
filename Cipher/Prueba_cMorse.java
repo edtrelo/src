@@ -88,27 +88,28 @@ public class Prueba_cMorse {
             abc2[x] = String.valueOf(abc[x]);
         }
 
-
         //depues de la primera letra, sale la letra decifrada de una letra antes del abc
         String[] mensajeCifrado = new String[mensaje.length()];
 
         for (int i = 0; i < mensajeComoArreglo.length; i++) {
             for (int j = 0; j < abc2.length; j++) {
-                if (abc2[j].equalsIgnoreCase(String.valueOf(mensajeComoArreglo[i]))) {//Aqui se checa que la palabra se ecnuentre en el abc
+                if(abc2[j].equalsIgnoreCase(String.valueOf(mensajeComoArreglo[i]))) {//Aqui se checa que la palabra se ecnuentre en el abc
                     mensajeCifrado[i] = codigoM[j];//Aqui ya se convierte cada palabra en Cmorse
                 }
             }
         }
 
+        //Para resolver los nulls que pasa cuando no hay equivalencia en morse
+        for(int x = 0; x < mensajeCifrado.length; x++){
+            if(mensajeCifrado[x] == null){
+                mensajeCifrado[x] = String.valueOf(mensajeComoArreglo[x]);
+            }
+        }
 
-        Auxiliar.printArray(mensajeCifrado);
         // String[] cifradoComoArr=mensajeCifrado; //Aqui intento convertir el resultado en un arreglo
         // la cuestion es que el resultado lo devuelve en un string, lo que me estuvo tardando y tardando es que no
         //no puedo convertirlo en arreglo
 
-        //Esto es para hacer la prueba
-        String[] hola = {"hola"};
-
-        return hola;
+        return mensajeCifrado;
     }
     }

@@ -30,7 +30,11 @@ public class Chat {
 
         Prueba_cMorse prueba = new Prueba_cMorse();
 
-        prueba.cMorse("Prueba");
+        String [] morse = prueba.cMorse("Pr ueñba");
+
+        Auxiliar.printArray(morse);
+
+        System.out.println(morse[2]);
 
     }
 
