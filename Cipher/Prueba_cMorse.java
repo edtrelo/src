@@ -10,7 +10,6 @@ public class Prueba_cMorse {
             'p','q','r','s','t','u','v','w','x','y','z','0','1','2','3','4','5','6','7','8','9',
             'á','é','í','ó','ú','.',',','?','!','(',')','[',']','&',':',';', '=', '+', '-','_', '$', '@'};
         
-        char[] mensajeComoArreglo = mensaje.toCharArray();             
         String[] codigoM = new String[58];
         codigoM[0] = " .- "; 		// a
         codigoM[1] = " -... ";		// b
@@ -72,14 +71,25 @@ public class Prueba_cMorse {
         codigoM[57] = " . - .-. ";	// @   
 
         
+        String mensajeHigh = mensaje.toUpperCase();
+        String mensajeLow = mensaje.toLowerCase();
+
+        if (mensaje.equals(mensajeHigh)) {
+            mensaje = mensajeLow;
+        }else{mensaje=mensajeLow;}
+        
+        String mensajeMod=mensaje;
+        System.out.println(mensajeMod);
+        
+        char[] mensajeModComoArr=mensajeMod.toCharArray();
         
         
         String[] a = null;
   
   String mensajeCifrado;
-    for(int i=0;i<mensajeComoArreglo.length;i++){
+    for(int i=0;i<mensajeModComoArr.length;i++){
         for(int j=0;j<abc.length;j++){
-              if(mensajeComoArreglo[i]==abc[j]){//Aqui se checa que la palabra se ecnuentre en el abc
+              if(mensajeModComoArr[i]==abc[j]){//Aqui se checa que la palabra se ecnuentre en el abc
                mensajeCifrado=codigoM[j];//Aqui ya se convierte cada palabra en Cmorse
                   System.out.print(mensajeCifrado);//Aqui imprime cada resultado
               }
