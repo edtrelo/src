@@ -675,6 +675,9 @@ public class AllTuring {
         String [] rotor3 = {"A", "N", "O", "V", "R", "E", "C", "G", "P", "U", "F", "S", "B", "K", "J", "T", "Y",
                 "H", "I", "Z", "L", "M", "D", "X", "Q", "W"};
 
+        String [] alfabeto = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L",
+                "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
+
         for(int x = 0; x < numeroRotaciones; x++){
             Auxiliar.recorreArray(rotor1);
             Auxiliar.recorreArray(rotor2);
@@ -685,54 +688,69 @@ public class AllTuring {
         Auxiliar.printArray(rotor2);
         Auxiliar.printArray(rotor3);
 
-        int[] indices = Auxiliar.gimmeIndex(palabra);
-
         String [] palabraDecodificada = new String[palabra.length()];
 
-        Auxiliar.printArray(indices);
+        for(int x = palabra.length()-1; x >= 0 ; x--) {
 
-        for(int x = palabra.length()-1; x > 0 ; x--){
-            //DE CLAVIJERO A PRIMER ROTOR
-            if(indices[x] == -1){
+            int indice;
+
+            if (!Auxiliar.isInThere(palabra.charAt(x))) {
                 palabraDecodificada[x] = String.valueOf(palabra.charAt(x));
-            }else {
-                palabraDecodificada[x] = rotor3[indices[x]];
+            } else {
+                indice = Auxiliar.gimmeIndex(String.valueOf(palabra.charAt(x)), rotor3);
+                palabraDecodificada[x] = alfabeto[indice];
                 Auxiliar.retrasaArray(rotor3);
-            }
-
-            //DE PRIMER ROTOR A SEGUNDO ROTOR
-            //Volvemos a cambiar el arreglo a palabra
-            palabra = Auxiliar.gimmeWord(palabraDecodificada);
-            //Obtenemos los índices de la palabra cifrada que arroja el rotor 1
-            indices = Auxiliar.gimmeIndex(palabra);
-            if(indices[x]==-1){
-                palabraDecodificada[x] = String.valueOf(palabra.charAt(x));
-            }else {
-                palabraDecodificada[x] = rotor2[indices[x]];
-                Auxiliar.retrasaArray(rotor2);
-            }
-
-            //DE SEGUNDO ROTOR A TERCER ROTOR
-            //Volvemos a cambiar el arreglo a palabra
-            palabra = Auxiliar.gimmeWord(palabraDecodificada);
-            //Obtenemos los índices de la palabra cifrada que arroja el rotor 2
-            indices = Auxiliar.gimmeIndex(palabra);
-            if(indices[x]==-1){
-                palabraDecodificada[x] = String.valueOf(palabra.charAt(x));
-            }else {
-                palabraDecodificada[x] = rotor1[indices[x]];
-                Auxiliar.recorreArray(rotor1);
             }
         }
 
-        Clavijero clavijero = new Clavijero();
+
+        //DE PRIMER ROTOR A SEGUNDO ROTOR
+        //Volvemos a cambiar el arreglo a palabra
+        palabra = Auxiliar.gimmeWord(palabraDecodificada);
+
+        System.out.println("Esta es la palabra: " + palabra);
+
+
+        for(int x = palabra.length()-1; x >= 0 ; x--) {
+
+            int indice;
+
+            if (!Auxiliar.isInThere(palabra.charAt(x))) {
+                palabraDecodificada[x] = String.valueOf(palabra.charAt(x));
+            } else {
+                indice = Auxiliar.gimmeIndex(String.valueOf(palabra.charAt(x)), rotor2);
+                palabraDecodificada[x] = alfabeto[indice];
+                Auxiliar.retrasaArray(rotor2);
+            }
+        }
+
+        palabra = Auxiliar.gimmeWord(palabraDecodificada);
+
+        System.out.println("Esta es la palabra: " + palabra);
+
+
+        for(int x = palabra.length()-1; x >= 0 ; x--) {
+
+            int indice;
+
+            if(!Auxiliar.isInThere(palabra.charAt(x))){
+                palabraDecodificada[x] = String.valueOf(palabra.charAt(x));
+            }else {
+                indice = Auxiliar.gimmeIndex(String.valueOf(palabra.charAt(x)), rotor1);
+                palabraDecodificada[x] = alfabeto[indice];
+                Auxiliar.retrasaArray(rotor1);
+            }
+        }
+
+        Auxiliar.printArray(palabraDecodificada);
+
+        /*Clavijero clavijero = new Clavijero();
         clavijero.mix(clave);
 
         //Este es el clavijero que usaremos
         String [] clavijeroEnigma = clavijero.clavijero;
 
         palabra = Auxiliar.gimmeWord(palabraDecodificada);
-        indices = Auxiliar.gimmeIndex(palabra);
 
         for(int x = palabra.length()-1; x > 0; x--){
             if(indices[x]==-1){
@@ -740,7 +758,7 @@ public class AllTuring {
             }else{
                 palabraDecodificada[x] = clavijeroEnigma[indices[x]];
             }
-        }
+        }*/
 
         Auxiliar.printArray(palabraDecodificada);
 
