@@ -656,6 +656,53 @@ public class AllTuring {
         return cesarDecodificado;
     }
 
+    public String[] bombe(int clave, String palabra){
+
+        String palabraSinSimbolos = "";
+
+        for(int x = 0; x < palabra.length(); x++){
+            if(Auxiliar.isInThere(palabra.charAt(x))){
+                palabraSinSimbolos = palabraSinSimbolos + palabra.charAt(x);
+            }
+        }
+
+        System.out.println(palabraSinSimbolos);
+
+        int numeroRotaciones = palabraSinSimbolos.length() - 1;
+
+        String [] rotor1 = {"Q", "E", "Z", "I", "P", "L", "O", "F", "S", "N", "B", "J", "V", "U", "A", "Y", "G",
+                "T", "H", "D", "C", "W", "R", "M", "X", "K"};
+
+        String [] rotor2 = {"O", "J", "X", "G", "T", "V", "S", "D", "Q", "L", "Y", "E", "I", "A", "B", "P", "H",
+                "W", "M", "F", "K", "U", "N", "C", "R", "Z"};
+
+        String [] rotor3 = {"A", "N", "O", "V", "R", "E", "C", "G", "P", "U", "F", "S", "B", "K", "J", "T", "Y",
+                "H", "I", "Z", "L", "M", "D", "X", "Q", "W"};
+
+        for(int x = 0; x < numeroRotaciones; x++){
+            Auxiliar.recorreArray(rotor1);
+            Auxiliar.recorreArray(rotor2);
+            Auxiliar.recorreArray(rotor3);
+        }
+
+        Auxiliar.printArray(rotor1);
+        Auxiliar.printArray(rotor2);
+        Auxiliar.printArray(rotor3);
+
+
+
+
+
+
+
+
+
+
+        String [] g = {"hola"};
+
+        return g;
+    }
+
     public String[] breakHASH(String[] palabra){
 
         int[] indices = new int[27];

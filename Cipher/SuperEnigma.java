@@ -230,9 +230,6 @@ import java.util.*;
 
     protected String [] enigma(int clave, String palabra){
 
-        String [] alfabeto = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L",
-                "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
-
         //Este es el arreglo que vamos a regresar.
         String [] palabraEnigma = new String[palabra.length()];
 
@@ -249,6 +246,14 @@ import java.util.*;
                 palabraEnigma[x] = String.valueOf(palabra.charAt(x));
             }else{
                 palabraEnigma[x] = clavijeroEnigma[indices[x]];
+            }
+        }
+
+        String palabraSinSimbolos = "";
+
+        for(int x = 0; x < palabra.length(); x++){
+            if(Auxiliar.isInThere(palabra.charAt(x))){
+                palabraSinSimbolos = palabraSinSimbolos + palabra.charAt(x);
             }
         }
 

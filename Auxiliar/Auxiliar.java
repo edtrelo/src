@@ -151,4 +151,16 @@ public class Auxiliar {
 
         return isInThere;
     }
+
+    public static boolean isInThere(char a, char [] array){
+        boolean isInThere = false;
+
+        for (char e: array) {
+            if (Character.toUpperCase(a) == Character.toUpperCase(e)){
+                isInThere = true;
+            }
+        }
+
+        return isInThere;
+    }
 }
