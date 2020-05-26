@@ -9,9 +9,13 @@ public class Prueba_cMorse {
 
     public String[] cMorse( String mensaje) {
 
+        mensaje = mensaje.toLowerCase();
+
         char[] abc = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o',
                 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
                 'á', 'é', 'í', 'ó', 'ú', '.', ',', '?', '!', '(', ')', '[', ']', '&', ':', ';', '=', '+', '-', '_', '$', '@'};
+
+        char[] mensajeComoArreglo = mensaje.toCharArray();
 
         String[] codigoM = new String[58];
         codigoM[0] = " .- ";        // a
@@ -77,7 +81,7 @@ public class Prueba_cMorse {
         codigoM[56] = " ...-..- ";    // $
         codigoM[57] = " . - .-. ";    // @
         
-        String mensajeHigh = mensaje.toUpperCase();
+        /*String mensajeHigh = mensaje.toUpperCase();
         String mensajeLow = mensaje.toLowerCase();
          
         //hacer la palabra en minuscula
@@ -93,19 +97,52 @@ public class Prueba_cMorse {
         
         String[] a = null;
   
-  String mensajeCifrado;
-    for(int i=0;i<mensajeModComoArr.length;i++){
+         String mensajeCifrado;
+         for(int i=0;i<mensajeModComoArr.length;i++){
         for(int j=0;j<abc.length;j++){
               if(mensajeModComoArr[i]==abc[j]){//Aqui se checa que la palabra se ecnuentre en el abc
                mensajeCifrado=codigoM[j];//Aqui ya se convierte cada palabra en Cmorse
                   System.out.print(mensajeCifrado);//Aqui imprime cada resultado
               }
         }System.out.println("");
-    }
+        }
        // String[] cifradoComoArr=mensajeCifrado; //Aqui intento convertir el resultado en un arreglo
-    // la cuestion es que el resultado lo devuelve en un string, lo que me estuvo tardando y tardando es que no
-    // puedo convertirlo en arreglo
-        return a;
+        // la cuestion es que el resultado lo devuelve en un string, lo que me estuvo tardando y tardando es que no
+        // puedo convertirlo en arreglo
+        return a;*/
+
+        //aqui me estoy dando de topes para el codigo
+
+        //Transformamos todos los chars a Strings
+        String [] abc2 = new String[abc.length];
+
+        for(int x = 0; x < abc2.length; x++){
+            abc2[x] = String.valueOf(abc[x]);
+        }
+
+        //depues de la primera letra, sale la letra decifrada de una letra antes del abc
+        String[] mensajeCifrado = new String[mensaje.length()];
+
+        for (int i = 0; i < mensajeComoArreglo.length; i++) {
+            for (int j = 0; j < abc2.length; j++) {
+                if(abc2[j].equalsIgnoreCase(String.valueOf(mensajeComoArreglo[i]))) {//Aqui se checa que la palabra se ecnuentre en el abc
+                    mensajeCifrado[i] = codigoM[j];//Aqui ya se convierte cada palabra en Cmorse
+                }
+            }
+        }
+
+        //Para resolver los nulls que pasa cuando no hay equivalencia en morse
+        for(int x = 0; x < mensajeCifrado.length; x++){
+            if(mensajeCifrado[x] == null){
+                mensajeCifrado[x] = String.valueOf(mensajeComoArreglo[x]);
+            }
+        }
+
+        // String[] cifradoComoArr=mensajeCifrado; //Aqui intento convertir el resultado en un arreglo
+        // la cuestion es que el resultado lo devuelve en un string, lo que me estuvo tardando y tardando es que no
+        //no puedo convertirlo en arreglo
+
+        return mensajeCifrado;
         
     }
 }

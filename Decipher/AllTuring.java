@@ -689,9 +689,12 @@ public class AllTuring {
         Auxiliar.printArray(rotor2);
         Auxiliar.printArray(rotor3);
 
+        int[] indices = Auxiliar.gimmeIndex(palabra);
 
+        Auxiliar.printArray(indices);
 
-
+        Auxiliar.retrasaArray(rotor1);
+        Auxiliar.printArray(rotor1);
 
 
 

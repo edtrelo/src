@@ -112,6 +112,16 @@ public class Auxiliar {
         return array;
     }
 
+    public static String[] retrasaArray(String[] array){
+        String temp = array[array.length-1]; //Este es el primer elemento y es el que pondremos al último
+        for(int x = array.length-1; x > 0; x--){
+            array[x] = array[x-1]; //at index=0 put A[1]..and so on.
+        }
+        //Colocamos el primer elemento en el último lugar
+        array[0] = temp;
+        return array;
+    }
+
     //Regresa si un símbolo está en el abecedario
     public static boolean isInThere(char a){
         String [] alfabeto = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L",
@@ -152,15 +162,5 @@ public class Auxiliar {
         return isInThere;
     }
 
-    public static boolean isInThere(char a, char [] array){
-        boolean isInThere = false;
 
-        for (char e: array) {
-            if (Character.toUpperCase(a) == Character.toUpperCase(e)){
-                isInThere = true;
-            }
-        }
-
-        return isInThere;
-    }
 }

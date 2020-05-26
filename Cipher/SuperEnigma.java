@@ -249,14 +249,6 @@ import java.util.*;
             }
         }
 
-        String palabraSinSimbolos = "";
-
-        for(int x = 0; x < palabra.length(); x++){
-            if(Auxiliar.isInThere(palabra.charAt(x))){
-                palabraSinSimbolos = palabraSinSimbolos + palabra.charAt(x);
-            }
-        }
-
         String [] rotor1 = {"Q", "E", "Z", "I", "P", "L", "O", "F", "S", "N", "B", "J", "V", "U", "A", "Y", "G",
                 "T", "H", "D", "C", "W", "R", "M", "X", "K"};
 
