@@ -325,9 +325,9 @@ import java.util.*;
 
         char[] abc = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o',
             'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
-            'á', 'é', 'í', 'ó', 'ú', '.', ',', '?', '!', '(', ')', '[', ']', '&', ':', ';', '=', '+', '-', '_', '$', '@'};
+            'á', 'é', 'í', 'ó', 'ú', '.', ',', '?', '!', '(', ')', '[', ']', '&', ':', ';', '=', '+', '-', '_', '$', '@',' '};
 
-        String[] codigoM = new String[58];
+        String[] codigoM = new String[59];
         codigoM[0] = " .- ";        // a
         codigoM[1] = " -... ";        // b
         codigoM[2] = " -.-. ";        // c
@@ -390,7 +390,8 @@ import java.util.*;
         codigoM[55] = " .. - .- ";    // _
         codigoM[56] = " ...-..- ";    // $
         codigoM[57] = " . - .-. ";    // @
-
+        codigoM[58] = "/";            //espacio
+        
         mensaje = mensaje.toLowerCase();
         char[] mensajeComoArreglo = mensaje.toCharArray();
 
@@ -416,7 +417,6 @@ import java.util.*;
             abc2[x] = String.valueOf(abc[x]);
         }
 
-        //depues de la primera letra, sale la letra decifrada de una letra antes del abc
         String[] mensajeCifrado = new String[newMensaje.length()];
 
         for (int i = 0; i < newMensajeArr.length; i++) {
