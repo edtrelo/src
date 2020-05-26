@@ -1,8 +1,11 @@
 package Decipher;
 
 import Auxiliar.Auxiliar;
+<<<<<<< HEAD
 import Cipher.Clavijero;
 import com.sun.jdi.event.StepEvent;
+=======
+>>>>>>> a0d219993c5d9bf352f54722ea9e0ef296490617
 
 import java.util.Arrays;
 import java.util.Scanner;
