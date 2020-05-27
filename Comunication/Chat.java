@@ -13,13 +13,13 @@ public class Chat {
         emisor.switchAvailable();
         emisor.setMensaje("Ya ma1ñana se. entre&ga la tarea");
 
-        String [] cifrado = emisor.cifradoCesar(3);
+        String [] cifrado = emisor.cifradoCesarEmoji(3);
 
         Auxiliar.printArray(cifrado);
 
         AllTuring decifrador = new AllTuring();
 
-        String [] decifrado = decifrador.cesarFall(3, cifrado);
+        String [] decifrado = decifrador.cesarEmojiFall(3, cifrado);
 
         Auxiliar.printArray(decifrado);
     }

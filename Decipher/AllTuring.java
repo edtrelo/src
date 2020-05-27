@@ -642,8 +642,6 @@ public class AllTuring {
             }
         }
 
-        Auxiliar.printArray(cesarDecodificado);
-
         //Esto soluciona lo de los símbolos y espacios
         for (int x = 0; x < cesarDecodificado.length; x++) {
             if (cesarDecodificado[x] == null) {
