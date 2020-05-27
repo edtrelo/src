@@ -396,6 +396,7 @@ import java.util.*;
             System.out.println("La clave debe ser mayor a cero y menor o igual que la long del mensaje.");
             clave = scan.nextInt();
         }
+
         //Transformamos la clave a String
         String newClave = Integer.toString(clave);
         //Generamos un número aleatorio entre el 1 y la longuitud del arreglo - 2.

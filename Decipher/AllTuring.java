@@ -913,8 +913,9 @@ public class AllTuring {
 
         return hash;
     }
+
         //metodo de descifrado de cMorse
-    public String[] goTesla( String mensajeDcf) {//el metodo es privado, por el momento dejemoslo en publico
+    public String[] goTesla(String mensajeDcf) {//el metodo es privado, por el momento dejemoslo en publico
             
         String ABC = " abcdefghijklmnopqrstuvwxyz 0123456789.,?! () [] &:; = + -_ $ @ ";
 
@@ -1001,5 +1002,9 @@ public class AllTuring {
     }
 
     //100
-    //clave
+    //clave: 270 toString ->> string.lenght()
+    //10270, 20393327081810101
+    //10270
+
+
 }
