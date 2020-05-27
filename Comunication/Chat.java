@@ -11,17 +11,18 @@ public class Chat {
 
         Emisor emisor = new Emisor("1234");
         emisor.switchAvailable();
-        emisor.setMensaje("YaMaaanaSeEntregaLaTarea");
+        emisor.setMensaje("Hola Mund*");
 
-        String [] cifrado = emisor.cMorse(27);
+        String [] cifrado = emisor.cMorse(3);
 
         Auxiliar.printArray(cifrado);
 
         AllTuring decifrador = new AllTuring();
 
-        String [] decifrado = decifrador.goTesla( "-.--  --...  .-  --  .-  .-  .-  -.  .-  ...  .  .  -.  -  .-.  .  -.  .-  .-..  .-  -  .-  .-.  .  .-");
+        String[] decifrdo = decifrador.goTesla(".... --- .-.. ...-- .- / -- ..- -. -.. *");
 
-        Auxiliar.printArray(decifrado);
+        Auxiliar.printArray(decifrdo);
+
     }
 
 }

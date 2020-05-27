@@ -913,11 +913,11 @@ public class AllTuring {
     }
 
         //metodo de descifrado de cMorse
-    public String[] goTesla(String mensajeDcf) {//el metodo es privado, por el momento dejemoslo en publico
+    public String[] goTesla(String mensaje) {//el metodo es privado, por el momento dejemoslo en publico
 
         String ABC = "abcdefghijklmnopqrstuvwxyz0123456789.,?!()[]&:;=+-_$@ ";
 
-        String codigoM[] = new String[60];
+        String codigoM[] = new String[54];
 
         codigoM[0] = ".-";             // a
         codigoM[1] = "-...";           // b
@@ -944,7 +944,7 @@ public class AllTuring {
         codigoM[22] = ".--";           // w
         codigoM[23] = "-..-";          // x
         codigoM[24] = "-.--";          // y
-        codigoM[25] = "--..";          // z      
+        codigoM[25] = "--..";          // z
         codigoM[26] = "-----";         // 0
         codigoM[27] = ".----";         // 1
         codigoM[28] = "..---";         // 2
@@ -975,25 +975,22 @@ public class AllTuring {
         codigoM[53] = "/";             // espacio
 
         //convertimos todos los String en arreglos de String 
-        String[] newMensajeDcf = mensajeDcf.split(" ");
-        String[] mensajeFinal = new String[newMensajeDcf.length];
+        //String[] newMensajeDcf = mensajeDcf.split(" ");
+        String [] mensajeDcf = mensaje.split(" ");
+        String[] mensajeFinal = new String[mensajeDcf.length];
 
-        //abc como arreglo de char
-        char[] newABC = ABC.toCharArray();
-        
-        for (int i = 0; i < newMensajeDcf.length; i++) {
-            for (int j = 0; j < 60; j++) {
-                if (newMensajeDcf[i].equalsIgnoreCase(String.valueOf(codigoM[j]))) {//este if no esta entrando.i.e no se cumple la logica
-                    mensajeFinal[i] = String.valueOf(newABC[j]);
-                    System.out.print(mensajeFinal[i]);//imrpime el mensaje descifrado
-                    
+        for (int i = 0; i < mensajeDcf.length; i++) {
+            for (int j = 0; j < codigoM.length; j++) {
+                if ((codigoM[j].equals(mensajeDcf[i]) /*&& mensajeFinal[i] == null*/)) {
+                    mensajeFinal[i] = String.valueOf(ABC.charAt(j));
                 }
             }
         }
-           //Para resolver los nulls que pasa cuando no hay equivalencia en morse
+
+        //Para resolver los nulls que pasa cuando no hay equivalencia en morse
         for (int x = 0; x < mensajeFinal.length; x++) {
             if (mensajeFinal[x] == null) {
-                mensajeFinal[x] = String.valueOf(newABC[x]);
+                mensajeFinal[x] = String.valueOf(mensajeDcf[x]);
             }
         }
 //        
@@ -1012,10 +1009,7 @@ public class AllTuring {
 //              }
 //            }
 //        }
-        
-        
-        
-    
+
         return mensajeFinal;
     }
 
