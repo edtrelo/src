@@ -913,8 +913,14 @@ class AllTuring {
     }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
  
     public String[] goTesla(String mensajeDcf) {//el metodo es privado, por el momento dejemoslo en publico
+=======
+
+    //metodo de descifrado de cMorse
+    private String[] goTesla(String mensaje) {//el metodo es privado, por el momento dejemoslo en publico
+>>>>>>> 76e745c8ed1737b87b4ef193882c88c0fb179373
 =======
 
     //metodo de descifrado de cMorse
@@ -1015,6 +1021,7 @@ class AllTuring {
 //              }
 //            }
 //        }
+<<<<<<< HEAD
 =======
 
     //metodo de descifrado de cMorse
@@ -1200,10 +1207,13 @@ class AllTuring {
 //              }
 //            }
 //        }
+=======
+>>>>>>> 76e745c8ed1737b87b4ef193882c88c0fb179373
 
         return mensajeFinal;
     }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     
     
@@ -1243,6 +1253,43 @@ class AllTuring {
         return decodificado;
     }
 
+=======
+    public String[] Decode(int clave, String mensaje){
+        System.out.println("¿Qué método para desencriptar prefiere usar: ");
+        System.out.println("1. jumpToN \n 2. cesarFall \n 3. cesarEmojiFall \n 4. bombe \n 5. goTesla ");
+
+        Scanner scan = new Scanner(System.in);
+        int elección = scan.nextInt();
+
+        while (!(elección>=1 && elección<=5)){
+            System.out.println("Esa opción es inválida. Pruebe de nuevo. ");
+            elección = scan.nextInt();
+        }
+
+        String[] decodificado = {" "};
+
+        switch (elección){
+            case 1:
+                decodificado = jumpToN(clave, mensaje);
+                break;
+            case 2:
+                decodificado = cesarFall(clave, mensaje);
+                break;
+            case 3:
+                decodificado = cesarEmojiFall(clave, mensaje);
+                break;
+            case 4:
+                decodificado = bombe(clave, mensaje);
+                break;
+            case 5:
+                decodificado = goTesla(mensaje);
+                break;
+        }
+
+        return decodificado;
+    }
+
+>>>>>>> 76e745c8ed1737b87b4ef193882c88c0fb179373
     public String[] Decode(int clave, String [] mensaje){
         System.out.println("¿Qué método para desencriptar prefiere usar: ");
         System.out.println("1. jumpToN \n 2. cesarFall \n 3. cesarEmojiFall \n 4. bombe \n 5. goTesla \n 6. breakHash");

@@ -11,6 +11,7 @@ public class Chat {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         Emisor emisor = new Emisor("1234");
         emisor.switchAvailable();
         emisor.setMensaje("Ya es mañana");
@@ -28,6 +29,8 @@ public class Chat {
 >>>>>>> 76e745c8ed1737b87b4ef193882c88c0fb179373
 =======
 >>>>>>> refs/remotes/origin/master
+=======
+>>>>>>> 76e745c8ed1737b87b4ef193882c88c0fb179373
     }
 
 }
