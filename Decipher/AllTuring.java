@@ -614,7 +614,7 @@ class AllTuring {
         return goTesla(mensaje);
     }
     
-    public String[] Decode(int clave, String mensaje){
+    protected String[] Decode(int clave, String mensaje){
         System.out.println("¿Qué método para desencriptar prefiere usar: ");
         System.out.println("1. jumpToN \n 2. cesarFall \n 3. cesarEmojiFall \n 4. bombe \n 5. goTesla ");
 
@@ -649,7 +649,7 @@ class AllTuring {
         return decodificado;
     }
 
-    public String[] Decode(int clave, String [] mensaje){
+    protected String[] Decode(int clave, String [] mensaje){
         System.out.println("¿Qué método para desencriptar prefiere usar: ");
         System.out.println("1. jumpToN \n 2. cesarFall \n 3. cesarEmojiFall \n 4. bombe \n 5. goTesla \n 6. breakHash");
 
@@ -685,12 +685,5 @@ class AllTuring {
 
         return decodificado;
     }
-
-    //100
-    //clave: 270 toString ->> string.lenght()
-    //10270, 20393327081810101
-    //10270
-
-
 
 }
