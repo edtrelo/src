@@ -723,9 +723,6 @@ public class AllTuring {
         //Nuestra palabra ahora es el arreglo que generamos
         palabra = Auxiliar.gimmeWord(palabraDecodificada);
 
-        System.out.println("Esta es la palabra: " + palabra);
-
-
         for(int x = palabra.length()-1; x >= 0 ; x--) {
 
             int indice;
@@ -740,9 +737,6 @@ public class AllTuring {
         }
 
         palabra = Auxiliar.gimmeWord(palabraDecodificada);
-
-        System.out.println("Esta es la palabra: " + palabra);
-
 
         for(int x = palabra.length()-1; x >= 0 ; x--) {
 
@@ -764,8 +758,6 @@ public class AllTuring {
         String [] clavijeroEnigma = clavijero.clavijero;
 
         palabra = Auxiliar.gimmeWord(palabraDecodificada);
-        System.out.println("Esta es la palabra: " + palabra);
-
 
         for(int x = palabra.length()-1; x >= 0; x--){
 
@@ -779,11 +771,7 @@ public class AllTuring {
             }
         }
 
-        Auxiliar.printArray(palabraDecodificada);
-
-        String [] g = {"hola"};
-
-        return g;
+        return palabraDecodificada;
     }
 
     public String[] breakHASH(String[] palabra){
