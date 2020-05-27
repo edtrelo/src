@@ -11,15 +11,15 @@ public class Chat {
 
         Emisor emisor = new Emisor("1234");
         emisor.switchAvailable();
-        emisor.setMensaje("Ya ma1ñana se. entre&ga la tarea");
+        emisor.setMensaje("YaMaaanaSeEntregaLaTarea");
 
-        String [] cifrado = emisor.cifradoCesarEmoji(3);
+        String [] cifrado = emisor.cMorse(27);
 
         Auxiliar.printArray(cifrado);
 
         AllTuring decifrador = new AllTuring();
 
-        String [] decifrado = decifrador.cesarEmojiFall(3, cifrado);
+        String [] decifrado = decifrador.goTesla( "-.--  --...  .-  --  .-  .-  .-  -.  .-  ...  .  .  -.  -  .-.  .  -.  .-  .-..  .-  -  .-  .-.  .  .-");
 
         Auxiliar.printArray(decifrado);
     }
