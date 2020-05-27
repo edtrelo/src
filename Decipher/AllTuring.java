@@ -914,11 +914,11 @@ public class AllTuring {
 
         //metodo de descifrado de cMorse
     public String[] goTesla(String mensajeDcf) {//el metodo es privado, por el momento dejemoslo en publico
-            
+
         String ABC = "abcdefghijklmnopqrstuvwxyz0123456789.,?!()[]&:;=+-_$@ ";
 
         String codigoM[] = new String[60];
-        
+
         codigoM[0] = ".-";             // a
         codigoM[1] = "-...";           // b
         codigoM[2] = "-.-.";           // c
@@ -973,34 +973,53 @@ public class AllTuring {
         codigoM[51] = "...-..-";       // $
         codigoM[52] = ".-.-.";       // @
         codigoM[53] = "/";             // espacio
-        
+
         //convertimos todos los String en arreglos de String 
         String[] newMensajeDcf = mensajeDcf.split(" ");
-        String[] mensajeFinal=new String[newMensajeDcf.length];
+        String[] mensajeFinal = new String[newMensajeDcf.length];
 
         //abc como arreglo de char
-        char[] newABC=ABC.toCharArray();
+        char[] newABC = ABC.toCharArray();
         
-        
-        for(int i=0;i<newMensajeDcf.length;i++){
-            for(int j=0;j<60;j++){
-             if(newMensajeDcf[i].equalsIgnoreCase(codigoM[j])){//este if no esta entrando.i.e no se cumple la logica
-                 mensajeFinal[i]=String.valueOf(newABC[j]);
-//                 System.out.print(mensajeFinal[i]);//imrpime el mensaje descifrado con la clave incluida 
-             }
+        for (int i = 0; i < newMensajeDcf.length; i++) {
+            for (int j = 0; j < 60; j++) {
+                if (newMensajeDcf[i].equalsIgnoreCase(String.valueOf(codigoM[j]))) {//este if no esta entrando.i.e no se cumple la logica
+                    mensajeFinal[i] = String.valueOf(newABC[j]);
+                    System.out.print(mensajeFinal[i]);//imrpime el mensaje descifrado
+                    
+                }
             }
         }
-
-        //Para resolver los nulls que pasa cuando no hay equivalencia en morse
+           //Para resolver los nulls que pasa cuando no hay equivalencia en morse
         for (int x = 0; x < mensajeFinal.length; x++) {
             if (mensajeFinal[x] == null) {
                 mensajeFinal[x] = String.valueOf(newABC[x]);
             }
         }
+//        
+//        //String que contiene los numeros
+//        String[] num={"1","2","3","4","5","6","7","8","9","0"};
+//        //Convertir el arreglo mensajeFinal a String
+//        String msjSC=String.valueOf(mensajeFinal);
+//        String[] msjSinClave=new String[mensajeFinal.length];
+//        for (int x=0;x<mensajeFinal.length;x++){
+//            for(int y=0;y<num.length;y++){
+//              if(mensajeFinal[x].equalsIgnoreCase(num[y])){
+//                        mensajeFinal[x]=msjSC.replace(num[y],"9");
+//                        System.out.println("");
+//                        String f=String.valueOf(mensajeFinal[x]);
+//                        System.out.println(f);
+//              }
+//            }
+//        }
+        
+        
+        
+    
         return mensajeFinal;
-
-
     }
+
+
 
     //100
     //clave: 270 toString ->> string.lenght()

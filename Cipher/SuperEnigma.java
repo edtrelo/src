@@ -320,7 +320,7 @@ import java.util.*;
 
     }
 
-    protected String[] cMorse(int clave, String mensaje) {
+    public String[] cMorse(int clave, String mensaje) {
 
         char[] abc = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o',
             'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
@@ -396,18 +396,13 @@ import java.util.*;
             System.out.println("La clave debe ser mayor a cero y menor o igual que la long del mensaje.");
             clave = scan.nextInt();
         }
-
         //Transformamos la clave a String
         String newClave = Integer.toString(clave);
-        //Generamos un número aleatorio entre el 1 y la longuitud del arreglo - 2.
-        Random random = new Random();
-        int aleatorio = random.nextInt(mensaje.length()-2) + 1;
         //introducimos de manera pseudoañeatoria el numero a la palabra
-        String newMensaje = mensaje.substring(0, aleatorio) + newClave
-                + mensaje.substring(aleatorio, mensaje.length());
+        String newMensaje = mensaje.substring(0, mensaje.length() / clave) + newClave
+                + mensaje.substring(mensaje.length() / clave, mensaje.length());
 
-
-        // System.out.println(newMensaje); Imprime la palabra ya con la clave
+         System.out.println(newMensaje);// Imprime la palabra ya con la clave
 
         char[] newMensajeArr = newMensaje.toCharArray();
         
@@ -417,13 +412,14 @@ import java.util.*;
             abc2[x] = String.valueOf(abc[x]);
         }
 
+        //depues de la primera letra, sale la letra decifrada de una letra antes del abc
         String[] mensajeCifrado = new String[newMensaje.length()];
 
         for (int i = 0; i < newMensajeArr.length; i++) {
             for (int j = 0; j < abc2.length; j++) {
                 if (abc2[j].equalsIgnoreCase(String.valueOf(newMensajeArr[i]))) {//Aqui se checa que la palabra se ecnuentre en el abc
                     mensajeCifrado[i] = codigoM[j];//Aqui ya se convierte cada palabra en Cmorse
-                    //System.out.println(mensajeCifrado[i]); imprime la palabra ya codificada 
+                    System.out.print(mensajeCifrado[i]); //imprime la palabra ya codificada 
                 }
             }
         }
