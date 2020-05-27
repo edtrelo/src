@@ -490,7 +490,7 @@ public class AllTuring {
         //Volvemos a transformar  a minúsulas
         if (!Auxiliar.isUpperCase(palabra)) {
             for(int x = 0; x < cesarDecodificado.length; x++) {
-                if(!Auxiliar.isInThere(palabra.charAt(x))){
+                if(!Auxiliar.isInThere(palabra.charAt(x), letrasCesar)){
                     cesarDecodificado[x] = String.valueOf(palabra.charAt(x));
                 }else{
                     cesarDecodificado[x] = cesarDecodificado[x].toUpperCase();

@@ -9,30 +9,19 @@ public class Chat {
     public static void main(String[] args){
 
 
-        Emisor em = new Emisor("1234");
-        em.switchAvailable();
-        em.setMensaje("Arkh&am");
+        Emisor emisor = new Emisor("1234");
+        emisor.switchAvailable();
+        emisor.setMensaje("Ya ma1ñana se. entre&ga la tarea");
 
-        String [] emoticones = em.cifradoCesarEmoji(8);
-        System.out.println("Este es el cifrado de la palabra: " + em.getMensaje() + " en método cesarEmoji:");
-        Auxiliar.printArray(emoticones);
+        String [] cifrado = emisor.cifradoCesar(3);
 
-        String [] cesarin = em.cifradoCesar(8);
-        String [] enigma = em.enigma(7);
-        System.out.println("Este es el cifrado de la palabra: " + em.getMensaje() + " en método enigma:");
-        Auxiliar.printArray(enigma);
+        Auxiliar.printArray(cifrado);
 
-        AllTuring al = new AllTuring();
+        AllTuring decifrador = new AllTuring();
 
-        //String [] dec = al.cesarEmojiFall(35, emoticones);
+        String [] decifrado = decifrador.cesarFall(3, cifrado);
 
-        String [] dul = al.cesarFall(8, cesarin);
-
-        String [] hue = al.bombe(7, Auxiliar.gimmeWord(enigma));
-        System.out.println("Este es el decifrado de la palabra: " + Auxiliar.gimmeWord(enigma) + " cifrada en " +
-                "método enigma: ");
-        Auxiliar.printArray(hue);
-
+        Auxiliar.printArray(decifrado);
     }
 
 }
