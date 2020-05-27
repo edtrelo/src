@@ -633,7 +633,7 @@ class AllTuring {
     
     protected String[] Decode(int clave, String mensaje){
         System.out.println("¿Qué método para desencriptar prefiere usar: ");
-        System.out.println("1. jumpToN \n 2. cesarFall \n 3. cesarEmojiFall \n 4. bombe \n 5. goTesla \n 6. contraPolibio");
+        System.out.println(" 1. jumpToN \n 2. cesarFall \n 3. cesarEmojiFall \n 4. bombe \n 5. goTesla \n 6. contraPolibio");
 
         Scanner scan = new Scanner(System.in);
         int elección = scan.nextInt();
@@ -671,7 +671,7 @@ class AllTuring {
 
     protected String[] Decode(int clave, String [] mensaje){
         System.out.println("¿Qué método para desencriptar prefiere usar: ");
-        System.out.println("1. jumpToN \n 2. cesarFall \n 3. cesarEmojiFall \n 4. bombe \n 5. goTesla \n 6. breakHash " +
+        System.out.println(" 1. jumpToN \n 2. cesarFall \n 3. cesarEmojiFall \n 4. bombe \n 5. goTesla \n 6. breakHash " +
                 "\n 7. contraPolibio");
 
         Scanner scan = new Scanner(System.in);

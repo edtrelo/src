@@ -5,7 +5,6 @@ import Cipher.*;
 import Decipher.*;
 
 import java.util.Scanner;
-import java.util.SortedMap;
 
 public class Chat {
 	
@@ -69,17 +68,23 @@ public class Chat {
         System.out.println("Su trabajo aquí ha terminado. Adiós.");
 
         System.out.println("\nBienvenido. Han pasado varios días desde que alguien mandó un mensaje codificado y solo" +
-                "usted puede desencriptarlo. ");
+                " usted puede desencriptarlo. ");
 
         System.out.println("Introduzca su nueva clave privada: ");
 
-        String contraseñaReceptor = scan.nextLine();
-        Receptor receptor = new Receptor(contraseñaReceptor);
+        Scanner scan2 = new Scanner(System.in);
+        String contraseñaRec = scan2.nextLine();
+        Receptor receptor = new Receptor(contraseñaRec);
 
         System.out.println("El mensaje ha desencriptar es el siguiente: ");
         Auxiliar.printArray(codificado);
+        System.out.println("La clave del día es: " + clave);
 
-        System.out.println("Por favor, ayúdenos a soucionar este problema. ");
+        System.out.println("Por favor, ayúdenos a solucionar este problema. ");
+
+        System.out.println("\n Esta es la máquina que le ayudará a decifrar. Bienvenido. ");
+
+        receptor.Decode(codificado);
 
     }
 

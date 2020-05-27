@@ -1,7 +1,6 @@
 package Decipher;
 
 import Auxiliar.Auxiliar;
-import Cipher.Emisor;
 import java.util.Scanner;
 
 public class Receptor extends AllTuring{
@@ -10,7 +9,7 @@ public class Receptor extends AllTuring{
 
     //construtor
     public Receptor(String privateKey) {
-        privateKey = this.privateKeyR;
+        this.privateKeyR = privateKey;
     }
 
     //Metodos getters y setters
@@ -19,17 +18,30 @@ public class Receptor extends AllTuring{
     }
 
     public void setPrivateKey(String privateKey) {
-        this.privateKeyR = privateKey;
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Por favor introduzca su clave privada: ");
+        String clavePrivada = scan.nextLine();
+        if(clavePrivada.equals(this.getPrivateKey())){
+            this.privateKeyR = privateKey;
+        }
+        else{
+            System.out.println("No introdujo la clave correcta.");
+        }
+
     }
     //Fin de metodos getter y setters 
 
 
-    public void Decode(String clavePrivada, String mensaje) {
+    public void Decode(String mensaje) {
 
-        if (clavePrivada.equals(this.privateKeyR)) {
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Por favor introduzca su clave privada: ");
+        String clavePrivada = scan.nextLine();
+
+        if (clavePrivada.equals(getPrivateKey())) {
             System.out.println("Las contraseñas son correctas, ahora puede decifrar. ");
+
             System.out.println("Introduzca una clave entera (mayor cero) para el decifrado: ");
-            Scanner scan = new Scanner(System.in);
             int clave = scan.nextInt();
 
             while(clave < 0){
@@ -47,21 +59,22 @@ public class Receptor extends AllTuring{
 
         } else {
             System.out.println("Las contraseñas privadas no son iguales. ");
+            System.out.println("Usted debe ser del enemigo. ");
         }
     }
 
-    public void Decode(String clavePrivada, String [] mensaje) {
+    public void Decode(String [] mensaje) {
 
         String mensajeChido = Auxiliar.gimmeWord(mensaje);
 
-        Decode(clavePrivada, mensajeChido);
+        Decode(mensajeChido);
     }
 
-    public void Decode(String clavePrivada, char[] mensaje) {
+    public void Decode(char[] mensaje) {
 
         String[] mensajeChido = Auxiliar.fromCharToString(mensaje);
 
-        Decode(clavePrivada, mensajeChido);
+        Decode(mensajeChido);
     }
 
 }
