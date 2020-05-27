@@ -991,6 +991,12 @@ public class AllTuring {
              }
             }
         }
+        //Para resolver los nulls que pasa cuando no hay equivalencia en morse
+        for (int x = 0; x < mensajeFinal.length; x++) {
+            if (mensajeFinal[x] == null) {
+                mensajeFinal[x] = String.valueOf(newABC[x]);
+            }
+        }
         return mensajeFinal;
     }
 }
