@@ -4,7 +4,7 @@ import Auxiliar.Auxiliar;
 import Cipher.Clavijero;
 import java.util.Scanner;
 
-class AllTuring {
+public class AllTuring {
     private String[] jumpToN(int clave, String palabra){
         //Nos aseguramos que la clave sea mayor a cero.
         while(clave < 0) {
@@ -275,7 +275,7 @@ class AllTuring {
         return cesarFall(clave, palabra);
     }
 
-    private String[] cesarEmojiFall(int clave, String palabra){
+    public String[] cesarEmojiFall(int clave, String palabra){
 
         //Nos aseguramos que la clave sea mayor a cero.
         while (clave < 0) {
@@ -288,8 +288,8 @@ class AllTuring {
                 "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
 
         int claveCesar = clave % 27;
-        char [] palabraComoArreglo = palabra.toCharArray();
-        String[] cesarDecodificado= new String[palabra.length()/2];
+
+        String ABC = "abcdefghijklmnopqrstuvwxyz0123456789.,¿?!¡()[]&:;=+-_$@* ";
 
         String [] emojisDelCesar = new String[27];
 
@@ -302,7 +302,19 @@ class AllTuring {
 
         //Aquí almacenaremos los emojis que forman la palabra
         //la longuitud es sobre dos porque cada dos caracteres forman un emoji
-        String [] emojis = new String[palabra.length()/2];
+
+        String palabraSinSimbolos = palabra;
+
+        for(int x = 0; x < ABC.length(); x++){
+            palabraSinSimbolos = palabraSinSimbolos.replace(String.valueOf(ABC.charAt(x)), "");
+        }
+
+        System.out.println(palabraSinSimbolos);
+
+        int simbolos = palabra.length() - palabraSinSimbolos.length();
+
+        String [] emojis = new String [palabraSinSimbolos.length()/2 + simbolos];
+        String[] cesarDecodificado = new String [palabraSinSimbolos.length()/2 + simbolos];
 
         for (int x = 0; x < emojis.length; x++) {
             emojis[x] = new StringBuilder().appendCodePoint(
@@ -323,6 +335,8 @@ class AllTuring {
             hashCodesEmojis[x] = emojisDelCesar[x].hashCode();
         }
 
+        Auxiliar.printArray(hashCodesEmojis);
+
         /*Verificamos cuáles hash codes coinciden y al emoji del arreglo de 27 con el que coincida, le asignamos
         el valor del arreglo del alfabeto que este en ese índice
          */
@@ -342,8 +356,10 @@ class AllTuring {
 
         //Esto soluciona lo de los símbolos y espacios
         for (int x = 0; x < cesarDecodificado.length; x++) {
-            if (cesarDecodificado[x] == null) {
-                cesarDecodificado[x] = String.valueOf(palabra.charAt(x));
+            for(int y = 0; y < palabra.length(); y++){
+                if (cesarDecodificado[x] == null) {
+                    cesarDecodificado[x] = String.valueOf(palabra.charAt(x));
+                }
             }
         }
 
@@ -580,6 +596,8 @@ class AllTuring {
                 }
             }
         }
+
+        String simbolos1 = "";
 
         //Para resolver los nulls que pasa cuando no hay equivalencia en morse
         for (int x = 0; x < mensajeFinal.length; x++) {
