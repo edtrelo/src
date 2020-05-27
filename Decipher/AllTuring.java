@@ -4,9 +4,9 @@ import Auxiliar.Auxiliar;
 import Cipher.Clavijero;
 import java.util.Scanner;
 
-public class AllTuring {
+class AllTuring {
 
-    public String[] jumpToN(int clave, String palabra){
+    private String[] jumpToN(int clave, String palabra){
         //Nos aseguramos que la clave sea mayor a cero.
         while(clave < 0) {
             Scanner scan = new Scanner(System.in);
@@ -45,7 +45,7 @@ public class AllTuring {
     }
 
     //Sobrecarga del método jumToN
-    public String[] jumpToN(int clave, String [] palabraComoString){
+    private String[] jumpToN(int clave, String [] palabraComoString){
 
         //Transformamos el arreglo a un string
         String palabra = Auxiliar.gimmeWord(palabraComoString);
@@ -87,7 +87,7 @@ public class AllTuring {
 
     }
 
-    public String[] contraPolibio(int clave, String palabra){
+    private String[] contraPolibio(int clave, String palabra){
 
         //Nos aseguramos que la clave sea mayor a cero.
         while(clave < 0) {
@@ -242,7 +242,7 @@ public class AllTuring {
     }
 
     //Sobrecarga del método contraPolibio
-    public String[] contraPolibio(int clave, String [] palabraComoString){
+    private String[] contraPolibio(int clave, String [] palabraComoString){
 
         //Transformamos el arreglo a un string
         String palabra = Auxiliar.gimmeWord(palabraComoString);
@@ -399,7 +399,7 @@ public class AllTuring {
 
     }
 
-    public String[] cesarFall(int clave, String palabra){
+    private String[] cesarFall(int clave, String palabra){
 
         //Nos aseguramos que la clave sea mayor a cero.
         while (clave < 0) {
@@ -449,7 +449,7 @@ public class AllTuring {
     }
 
     //Sobrecarga del método cesarFall
-    public String[] cesarFall(int clave, String [] palabraComoString){
+    private String[] cesarFall(int clave, String [] palabraComoString){
 
         //Transformamos el arreglo a un string
         String palabra = Auxiliar.gimmeWord(palabraComoString);
@@ -501,7 +501,7 @@ public class AllTuring {
         return cesarDecodificado;
     }
 
-    public String[] cesarEmojiFall(int clave, String palabra){
+    private String[] cesarEmojiFall(int clave, String palabra){
 
         //Nos aseguramos que la clave sea mayor a cero.
         while (clave < 0) {
@@ -577,7 +577,7 @@ public class AllTuring {
     }
 
     //Sobrecarga del método cesarEmojiFall
-    public String[] cesarEmojiFall(int clave, String[] palabraComoArray){
+    private String[] cesarEmojiFall(int clave, String[] palabraComoArray){
 
         String palabra = Auxiliar.gimmeWord(palabraComoArray);
 
@@ -652,7 +652,7 @@ public class AllTuring {
         return cesarDecodificado;
     }
 
-    public String[] bombe(int clave, String palabra){
+    private String[] bombe(int clave, String palabra){
 
         palabra = palabra.toUpperCase();
 
@@ -769,7 +769,7 @@ public class AllTuring {
     }
 
     //Sobrecarga del método Bombe
-    public String[] bombe(int clave, String[] palabraComoArray){
+    private String[] bombe(int clave, String[] palabraComoArray){
 
         String palabra = Auxiliar.gimmeWord(palabraComoArray);
 
@@ -887,7 +887,7 @@ public class AllTuring {
         return palabraDecodificada;
     }
 
-    public String[] breakHASH(String[] palabra){
+    private String[] breakHASH(String[] palabra){
 
         int[] indices = new int[27];
 
@@ -911,12 +911,18 @@ public class AllTuring {
 
         return hash;
     }
+<<<<<<< HEAD
  
     public String[] goTesla(String mensajeDcf) {//el metodo es privado, por el momento dejemoslo en publico
+=======
+
+    //metodo de descifrado de cMorse
+    private String[] goTesla(String mensaje) {//el metodo es privado, por el momento dejemoslo en publico
+>>>>>>> 76e745c8ed1737b87b4ef193882c88c0fb179373
 
         String ABC = "abcdefghijklmnopqrstuvwxyz0123456789.,?!()[]&:;=+-_$@ ";
 
-        String codigoM[] = new String[60];
+        String codigoM[] = new String[54];
 
         codigoM[0] = ".-";             // a
         codigoM[1] = "-...";           // b
@@ -943,7 +949,7 @@ public class AllTuring {
         codigoM[22] = ".--";           // w
         codigoM[23] = "-..-";          // x
         codigoM[24] = "-.--";          // y
-        codigoM[25] = "--..";          // z      
+        codigoM[25] = "--..";          // z
         codigoM[26] = "-----";         // 0
         codigoM[27] = ".----";         // 1
         codigoM[28] = "..---";         // 2
@@ -973,29 +979,26 @@ public class AllTuring {
         codigoM[52] = ".-.-.";       // @
         codigoM[53] = "/";             // espacio
 
-        //convertimos todos los String en arreglos de String 
-        String[] newMensajeDcf = mensajeDcf.split(" ");
-        String[] mensajeFinal = new String[newMensajeDcf.length];
+        //convertimos todos los String en arreglos de String
+        //String[] newMensajeDcf = mensajeDcf.split(" ");
+        String [] mensajeDcf = mensaje.split(" ");
+        String[] mensajeFinal = new String[mensajeDcf.length];
 
-        //abc como arreglo de char
-        char[] newABC = ABC.toCharArray();
-        
-        for (int i = 0; i < newMensajeDcf.length; i++) {
-            for (int j = 0; j < 60; j++) {
-                if (newMensajeDcf[i].equalsIgnoreCase(String.valueOf(codigoM[j]))) {//este if no esta entrando.i.e no se cumple la logica
-                    mensajeFinal[i] = String.valueOf(newABC[j]);
-                    System.out.print(mensajeFinal[i]);//imrpime el mensaje descifrado
-                    
+        for (int i = 0; i < mensajeDcf.length; i++) {
+            for (int j = 0; j < codigoM.length; j++) {
+                if ((codigoM[j].equals(mensajeDcf[i]) /*&& mensajeFinal[i] == null*/)) {
+                    mensajeFinal[i] = String.valueOf(ABC.charAt(j));
                 }
             }
         }
-           //Para resolver los nulls que pasa cuando no hay equivalencia en morse
+
+        //Para resolver los nulls que pasa cuando no hay equivalencia en morse
         for (int x = 0; x < mensajeFinal.length; x++) {
             if (mensajeFinal[x] == null) {
-                mensajeFinal[x] = String.valueOf(newABC[x]);
+                mensajeFinal[x] = String.valueOf(mensajeDcf[x]);
             }
         }
-//        
+//
 //        //String que contiene los numeros
 //        String[] num={"1","2","3","4","5","6","7","8","9","0"};
 //        //Convertir el arreglo mensajeFinal a String
@@ -1011,10 +1014,7 @@ public class AllTuring {
 //              }
 //            }
 //        }
-        
-        
-        
-    
+
         return mensajeFinal;
     }
     
@@ -1024,6 +1024,7 @@ public class AllTuring {
         
         String ABC = "abcdefghijklmnopqrstuvwxyz0123456789.,?!()[]&:;=+-_$@ ";
 
+<<<<<<< HEAD
         String codigoM[] = new String[60];
 
         codigoM[0] = ".-";             // a
@@ -1080,6 +1081,79 @@ public class AllTuring {
         codigoM[51] = "...-..-";       // $
         codigoM[52] = ".-.-.";       // @
         codigoM[53] = "/";             // espacio
+=======
+    public String[] Decode(int clave, String mensaje){
+        System.out.println("¿Qué método para desencriptar prefiere usar: ");
+        System.out.println("1. jumpToN \n 2. cesarFall \n 3. cesarEmojiFall \n 4. bombe \n 5. goTesla ");
+
+        Scanner scan = new Scanner(System.in);
+        int elección = scan.nextInt();
+
+        while (!(elección>=1 && elección<=5)){
+            System.out.println("Esa opción es inválida. Pruebe de nuevo. ");
+            elección = scan.nextInt();
+        }
+
+        String[] decodificado = {" "};
+
+        switch (elección){
+            case 1:
+                decodificado = jumpToN(clave, mensaje);
+                break;
+            case 2:
+                decodificado = cesarFall(clave, mensaje);
+                break;
+            case 3:
+                decodificado = cesarEmojiFall(clave, mensaje);
+                break;
+            case 4:
+                decodificado = bombe(clave, mensaje);
+                break;
+            case 5:
+                decodificado = goTesla(mensaje);
+                break;
+        }
+
+        return decodificado;
+    }
+
+    public String[] Decode(int clave, String [] mensaje){
+        System.out.println("¿Qué método para desencriptar prefiere usar: ");
+        System.out.println("1. jumpToN \n 2. cesarFall \n 3. cesarEmojiFall \n 4. bombe \n 5. goTesla \n 6. breakHash");
+
+        Scanner scan = new Scanner(System.in);
+        int elección = scan.nextInt();
+
+        while (!(elección>=1 && elección<=5)){
+            System.out.println("Esa opción es inválida. Pruebe de nuevo. ");
+            elección = scan.nextInt();
+        }
+
+        String[] decodificado = {" "};
+
+        switch (elección){
+            case 1:
+                decodificado = jumpToN(clave, mensaje);
+                break;
+            case 2:
+                decodificado = cesarFall(clave, mensaje);
+                break;
+            case 3:
+                decodificado = cesarEmojiFall(clave, mensaje);
+                break;
+            case 4:
+                decodificado = bombe(clave, mensaje);
+                break;
+            case 5:
+                //
+                break;
+            case 6:
+                decodificado = breakHASH(mensaje);
+        }
+
+        return decodificado;
+    }
+>>>>>>> 76e745c8ed1737b87b4ef193882c88c0fb179373
 
         //convertimos todos los String en arreglos de String 
         String[] newMensajeDcf = mensajeDcf.split(" ");
