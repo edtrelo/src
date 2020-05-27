@@ -912,6 +912,7 @@ class AllTuring {
         return hash;
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
  
     public String[] goTesla(String mensajeDcf) {//el metodo es privado, por el momento dejemoslo en publico
 =======
@@ -1014,6 +1015,11 @@ class AllTuring {
 //              }
 //            }
 //        }
+=======
+
+    //metodo de descifrado de cMorse
+    private String[] goTesla(String mensaje) {//el metodo es privado, por el momento dejemoslo en publico
+>>>>>>> refs/remotes/origin/master
 
         return mensajeFinal;
     }
@@ -1025,7 +1031,11 @@ class AllTuring {
         String ABC = "abcdefghijklmnopqrstuvwxyz0123456789.,?!()[]&:;=+-_$@ ";
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         String codigoM[] = new String[60];
+=======
+        String codigoM[] = new String[54];
+>>>>>>> refs/remotes/origin/master
 
         codigoM[0] = ".-";             // a
         codigoM[1] = "-...";           // b
@@ -1052,7 +1062,7 @@ class AllTuring {
         codigoM[22] = ".--";           // w
         codigoM[23] = "-..-";          // x
         codigoM[24] = "-.--";          // y
-        codigoM[25] = "--..";          // z      
+        codigoM[25] = "--..";          // z
         codigoM[26] = "-----";         // 0
         codigoM[27] = ".----";         // 1
         codigoM[28] = "..---";         // 2
@@ -1155,29 +1165,26 @@ class AllTuring {
     }
 >>>>>>> 76e745c8ed1737b87b4ef193882c88c0fb179373
 
-        //convertimos todos los String en arreglos de String 
-        String[] newMensajeDcf = mensajeDcf.split(" ");
-        String[] mensajeFinal = new String[newMensajeDcf.length];
+        //convertimos todos los String en arreglos de String
+        //String[] newMensajeDcf = mensajeDcf.split(" ");
+        String [] mensajeDcf = mensaje.split(" ");
+        String[] mensajeFinal = new String[mensajeDcf.length];
 
-        //abc como arreglo de char
-        char[] newABC = ABC.toCharArray();
-        
-        for (int i = 0; i < newMensajeDcf.length; i++) {
-            for (int j = 0; j < 60; j++) {
-                if (newMensajeDcf[i].equalsIgnoreCase(String.valueOf(codigoM[j]))) {//este if no esta entrando.i.e no se cumple la logica
-                    mensajeFinal[i] = String.valueOf(newABC[j]);
-                    System.out.print(mensajeFinal[i]);//imrpime el mensaje descifrado
-                    
+        for (int i = 0; i < mensajeDcf.length; i++) {
+            for (int j = 0; j < codigoM.length; j++) {
+                if ((codigoM[j].equals(mensajeDcf[i]) /*&& mensajeFinal[i] == null*/)) {
+                    mensajeFinal[i] = String.valueOf(ABC.charAt(j));
                 }
             }
         }
-           //Para resolver los nulls que pasa cuando no hay equivalencia en morse
+
+        //Para resolver los nulls que pasa cuando no hay equivalencia en morse
         for (int x = 0; x < mensajeFinal.length; x++) {
             if (mensajeFinal[x] == null) {
-                mensajeFinal[x] = String.valueOf(newABC[x]);
+                mensajeFinal[x] = String.valueOf(mensajeDcf[x]);
             }
         }
-//        
+//
 //        //String que contiene los numeros
 //        String[] num={"1","2","3","4","5","6","7","8","9","0"};
 //        //Convertir el arreglo mensajeFinal a String
@@ -1193,14 +1200,91 @@ class AllTuring {
 //              }
 //            }
 //        }
-        
-        
-        
-    
+
         return mensajeFinal;
     }
 
+<<<<<<< HEAD
     
     
+=======
+    public String[] Decode(int clave, String mensaje){
+        System.out.println("¿Qué método para desencriptar prefiere usar: ");
+        System.out.println("1. jumpToN \n 2. cesarFall \n 3. cesarEmojiFall \n 4. bombe \n 5. goTesla ");
+
+        Scanner scan = new Scanner(System.in);
+        int elección = scan.nextInt();
+
+        while (!(elección>=1 && elección<=5)){
+            System.out.println("Esa opción es inválida. Pruebe de nuevo. ");
+            elección = scan.nextInt();
+        }
+
+        String[] decodificado = {" "};
+
+        switch (elección){
+            case 1:
+                decodificado = jumpToN(clave, mensaje);
+                break;
+            case 2:
+                decodificado = cesarFall(clave, mensaje);
+                break;
+            case 3:
+                decodificado = cesarEmojiFall(clave, mensaje);
+                break;
+            case 4:
+                decodificado = bombe(clave, mensaje);
+                break;
+            case 5:
+                decodificado = goTesla(mensaje);
+                break;
+        }
+
+        return decodificado;
+    }
+
+    public String[] Decode(int clave, String [] mensaje){
+        System.out.println("¿Qué método para desencriptar prefiere usar: ");
+        System.out.println("1. jumpToN \n 2. cesarFall \n 3. cesarEmojiFall \n 4. bombe \n 5. goTesla \n 6. breakHash");
+
+        Scanner scan = new Scanner(System.in);
+        int elección = scan.nextInt();
+
+        while (!(elección>=1 && elección<=5)){
+            System.out.println("Esa opción es inválida. Pruebe de nuevo. ");
+            elección = scan.nextInt();
+        }
+
+        String[] decodificado = {" "};
+
+        switch (elección){
+            case 1:
+                decodificado = jumpToN(clave, mensaje);
+                break;
+            case 2:
+                decodificado = cesarFall(clave, mensaje);
+                break;
+            case 3:
+                decodificado = cesarEmojiFall(clave, mensaje);
+                break;
+            case 4:
+                decodificado = bombe(clave, mensaje);
+                break;
+            case 5:
+                //
+                break;
+            case 6:
+                decodificado = breakHASH(mensaje);
+        }
+
+        return decodificado;
+    }
+
+    //100
+    //clave: 270 toString ->> string.lenght()
+    //10270, 20393327081810101
+    //10270
+
+>>>>>>> refs/remotes/origin/master
 
 }

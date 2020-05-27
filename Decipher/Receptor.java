@@ -6,6 +6,7 @@ public class Receptor{
     private String privateKey;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     //Metodos getters y setters
     public String getPrivateKey() {
         return privateKey;
@@ -25,4 +26,7 @@ public class Receptor{
 =======
 
 >>>>>>> 76e745c8ed1737b87b4ef193882c88c0fb179373
+=======
+
+>>>>>>> refs/remotes/origin/master
 }
