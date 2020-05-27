@@ -524,7 +524,7 @@ class AllTuring {
         return hash;
     }
     
-    private String[] goTesla(int clave, String mensaje) {//el metodo es privado, por el momento dejemoslo en publico
+    private String[] goTesla(String mensaje) {//el metodo es privado, por el momento dejemoslo en publico
 
         String ABC = "abcdefghijklmnopqrstuvwxyz0123456789.,?!()[]&:;=+-_$@ ";
 
