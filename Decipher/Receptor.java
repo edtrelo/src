@@ -1,8 +1,9 @@
 
 package Decipher;
 
-public class Receptor {
+public class Receptor{
 
     private String privateKey;
-    
+
+
 }
