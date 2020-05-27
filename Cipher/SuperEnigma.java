@@ -284,7 +284,6 @@ import java.util.*;
                 Auxiliar.recorreArray(rotor2);
             }
 
-
             //DE SEGUNDO ROTOR A TERCER ROTOR
             //Volvemos a cambiar el arreglo a palabra
             palabra = Auxiliar.gimmeWord(palabraEnigma);
@@ -297,7 +296,6 @@ import java.util.*;
                 Auxiliar.recorreArray(rotor3);
             }
         }
-
 
         return palabraEnigma;
     }
@@ -321,6 +319,7 @@ import java.util.*;
         return palabraHash;
 
     }
+
     protected String[] cMorse(int clave, String mensaje) {
 
         char[] abc = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o',

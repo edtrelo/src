@@ -690,10 +690,6 @@ public class AllTuring {
             Auxiliar.recorreArray(rotor3);
         }
 
-        Auxiliar.printArray(rotor1);
-        Auxiliar.printArray(rotor2);
-        Auxiliar.printArray(rotor3);
-
         //Aquí iremos guardando lo que vayamos decodificando
         String [] palabraDecodificada = new String[palabra.length()];
 
