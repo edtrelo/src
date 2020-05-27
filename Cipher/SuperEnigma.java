@@ -388,12 +388,6 @@ import java.util.*;
         mensaje = mensaje.toLowerCase();
         char[] mensajeComoArreglo = mensaje.toCharArray();
 
-        //la clave debe de ser mayor a cero y menorigual a la longitud del mensaje      
-        while (clave < 0 || clave > mensaje.length()) {
-            Scanner scan = new Scanner(System.in);
-            System.out.println("La clave debe ser mayor a cero y menor o igual que la long del mensaje.");
-            clave = scan.nextInt();
-        }
         //Transformamos la clave a String
         String newClave = Integer.toString(clave);
         //introducimos de manera pseudoañeatoria el numero a la palabra

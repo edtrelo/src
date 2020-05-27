@@ -524,7 +524,7 @@ class AllTuring {
         return hash;
     }
     
-    private String[] goTesla(String mensaje) {//el metodo es privado, por el momento dejemoslo en publico
+    private String[] goTesla(int clave, String mensaje) {//el metodo es privado, por el momento dejemoslo en publico
 
         String ABC = "abcdefghijklmnopqrstuvwxyz0123456789.,?!()[]&:;=+-_$@ ";
 
@@ -604,22 +604,6 @@ class AllTuring {
                 mensajeFinal[x] = String.valueOf(mensajeDcf[x]);
             }
         }
-//
-//        //String que contiene los numeros
-//        String[] num={"1","2","3","4","5","6","7","8","9","0"};
-//        //Convertir el arreglo mensajeFinal a String
-//        String msjSC=String.valueOf(mensajeFinal);
-//        String[] msjSinClave=new String[mensajeFinal.length];
-//        for (int x=0;x<mensajeFinal.length;x++){
-//            for(int y=0;y<num.length;y++){
-//              if(mensajeFinal[x].equalsIgnoreCase(num[y])){
-//                        mensajeFinal[x]=msjSC.replace(num[y],"9");
-//                        System.out.println("");
-//                        String f=String.valueOf(mensajeFinal[x]);
-//                        System.out.println(f);
-//              }
-//            }
-//        }
 
         return mensajeFinal;
     }
