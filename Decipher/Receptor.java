@@ -8,6 +8,7 @@ public class Receptor{
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     //Metodos getters y setters
     public String getPrivateKey() {
         return privateKey;
@@ -30,6 +31,9 @@ public class Receptor{
 =======
 
 >>>>>>> refs/remotes/origin/master
+=======
+
+>>>>>>> 76e745c8ed1737b87b4ef193882c88c0fb179373
 =======
 
 >>>>>>> 76e745c8ed1737b87b4ef193882c88c0fb179373

@@ -914,8 +914,14 @@ class AllTuring {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
  
     public String[] goTesla(String mensajeDcf) {//el metodo es privado, por el momento dejemoslo en publico
+=======
+
+    //metodo de descifrado de cMorse
+    private String[] goTesla(String mensaje) {//el metodo es privado, por el momento dejemoslo en publico
+>>>>>>> 76e745c8ed1737b87b4ef193882c88c0fb179373
 =======
 
     //metodo de descifrado de cMorse
@@ -1021,6 +1027,7 @@ class AllTuring {
 //              }
 //            }
 //        }
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 
@@ -1209,12 +1216,15 @@ class AllTuring {
 //        }
 =======
 >>>>>>> 76e745c8ed1737b87b4ef193882c88c0fb179373
+=======
+>>>>>>> 76e745c8ed1737b87b4ef193882c88c0fb179373
 
         return mensajeFinal;
     }
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     
     
 =======
@@ -1254,6 +1264,8 @@ class AllTuring {
     }
 
 =======
+=======
+>>>>>>> 76e745c8ed1737b87b4ef193882c88c0fb179373
     public String[] Decode(int clave, String mensaje){
         System.out.println("¿Qué método para desencriptar prefiere usar: ");
         System.out.println("1. jumpToN \n 2. cesarFall \n 3. cesarEmojiFall \n 4. bombe \n 5. goTesla ");
@@ -1289,6 +1301,9 @@ class AllTuring {
         return decodificado;
     }
 
+<<<<<<< HEAD
+>>>>>>> 76e745c8ed1737b87b4ef193882c88c0fb179373
+=======
 >>>>>>> 76e745c8ed1737b87b4ef193882c88c0fb179373
     public String[] Decode(int clave, String [] mensaje){
         System.out.println("¿Qué método para desencriptar prefiere usar: ");
