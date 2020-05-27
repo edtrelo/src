@@ -999,4 +999,7 @@ public class AllTuring {
         }
         return mensajeFinal;
     }
+
+    //100
+    //clave
 }

@@ -398,9 +398,13 @@ import java.util.*;
         }
         //Transformamos la clave a String
         String newClave = Integer.toString(clave);
+        //Generamos un número aleatorio entre el 1 y la longuitud del arreglo - 2.
+        Random random = new Random();
+        int aleatorio = random.nextInt(mensaje.length()-2) + 1;
         //introducimos de manera pseudoañeatoria el numero a la palabra
-        String newMensaje = mensaje.substring(0, mensaje.length() / clave) + newClave
-                + mensaje.substring(mensaje.length() / clave, mensaje.length());
+        String newMensaje = mensaje.substring(0, aleatorio) + newClave
+                + mensaje.substring(aleatorio, mensaje.length());
+
 
         // System.out.println(newMensaje); Imprime la palabra ya con la clave
 
