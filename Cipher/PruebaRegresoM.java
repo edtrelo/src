@@ -64,7 +64,7 @@ public class PruebaRegresoM {
         codigoM[53] = "/";             // espacio
         
         //convertimos todos los String en arreglos de String 
-        String[] newMensajeDcf=mensajeDcf.split(" ");
+        String[] newMensajeDcf = mensajeDcf.split(" ");
         String[] mensajeFinal=new String[newMensajeDcf.length];
 
         //abc como arreglo de char
@@ -73,7 +73,7 @@ public class PruebaRegresoM {
         
         for(int i=0;i<m;i++){
             for(int j=0;j<60;j++){
-             if(newMensajeDcf[i].equalsIgnoreCase(String.valueOf(codigoM[j]))){//este if no esta entrando.i.e no se cumple la logica
+             if(newMensajeDcf[i].equalsIgnoreCase(codigoM[j])){//este if no esta entrando.i.e no se cumple la logica
                  mensajeFinal[i]=String.valueOf(newABC[j]);
                  System.out.print(mensajeFinal[i]);//imrpime el mensaje descifrado con la clave
              }

@@ -11,30 +11,27 @@ public class Chat {
 
         Emisor em = new Emisor("1234");
         em.switchAvailable();
-        em.setMensaje("Hola$");
+        em.setMensaje("Arkh&am");
 
         String [] emoticones = em.cifradoCesarEmoji(8);
+        System.out.println("Este es el cifrado de la palabra: " + em.getMensaje() + " en método cesarEmoji:");
         Auxiliar.printArray(emoticones);
 
         String [] cesarin = em.cifradoCesar(8);
-        String [] enigma = em.enigma(2);
+        String [] enigma = em.enigma(7);
+        System.out.println("Este es el cifrado de la palabra: " + em.getMensaje() + " en método enigma:");
         Auxiliar.printArray(enigma);
 
         AllTuring al = new AllTuring();
 
-        String [] dec = al.cesarEmojiFall(35, emoticones);
+        //String [] dec = al.cesarEmojiFall(35, emoticones);
 
         String [] dul = al.cesarFall(8, cesarin);
 
-        String [] hue = al.bombe(2, "FUGO$");
-
-        Prueba_cMorse prueba = new Prueba_cMorse();
-
-        String [] morse = prueba.cMorse("Pr ueñba");
-
-        Auxiliar.printArray(morse);
-
-        System.out.println(morse[2]);
+        String [] hue = al.bombe(7, Auxiliar.gimmeWord(enigma));
+        System.out.println("Este es el decifrado de la palabra: " + Auxiliar.gimmeWord(enigma) + " cifrada en " +
+                "método enigma: ");
+        Auxiliar.printArray(hue);
 
     }
 
