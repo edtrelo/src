@@ -302,9 +302,7 @@ import java.util.*;
 
     protected String[] HASH(String palabra){
 
-        int[] indices = new int[palabra.length()];
-
-        indices = Auxiliar.gimmeIndex(palabra);
+        int[] indices = Auxiliar.gimmeIndex(palabra);
 
         String [] palabraHash = new String[palabra.length()];
 
