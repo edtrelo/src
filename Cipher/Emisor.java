@@ -9,7 +9,7 @@ public class Emisor extends SuperEnigma{
     private boolean available = false;
 
     //Por hacer el constructor
-
+    
     //-------Inicio: Constructores------------------------------------------------------
     public Emisor(String privateKey){
         this.privateKey = privateKey;
