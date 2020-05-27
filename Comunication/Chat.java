@@ -11,9 +11,9 @@ public class Chat {
 
         Emisor emisor = new Emisor("1234");
         emisor.switchAvailable();
-        emisor.setMensaje("YaMaaanaSeEntregaLaTarea");
+        emisor.setMensaje("Ya es mañana");
 
-        String [] cifrado = emisor.cMorse(27);
+        String [] cifrado = emisor.cMorse(2);
 
         Auxiliar.printArray(cifrado);
 
