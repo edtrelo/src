@@ -770,6 +770,125 @@ public class AllTuring {
         return palabraDecodificada;
     }
 
+    //Sobrecarga del método Bombe
+    public String[] bombe(int clave, String[] palabraComoArray){
+
+        String palabra = Auxiliar.gimmeWord(palabraComoArray);
+
+        palabra = palabra.toUpperCase();
+
+        String [] rotor1 = {"Q", "E", "Z", "I", "P", "L", "O", "F", "S", "N", "B", "J", "V", "U", "A", "Y", "G",
+                "T", "H", "D", "C", "W", "R", "M", "X", "K"};
+
+        String [] rotor2 = {"O", "J", "X", "G", "T", "V", "S", "D", "Q", "L", "Y", "E", "I", "A", "B", "P", "H",
+                "W", "M", "F", "K", "U", "N", "C", "R", "Z"};
+
+        String [] rotor3 = {"A", "N", "O", "V", "R", "E", "C", "G", "P", "U", "F", "S", "B", "K", "J", "T", "Y",
+                "H", "I", "Z", "L", "M", "D", "X", "Q", "W"};
+
+        String [] alfabeto = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L",
+                "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
+
+        /*Los rotores se recorrerán cada vez que una letra se codifique. No lo harán cuando haya símbolos, por eso
+        solo consideramos a la palabra sin los símbolos. El rotor con el que iniciaremos es con la penúltima rotación,
+        es decir, no consideraremos al rotor que queda después de codificar la última letra, pues ese no se usa. */
+
+        String palabraSinSimbolos = "";
+
+        for(int x = 0; x < palabra.length(); x++){
+            if(Auxiliar.isInThere(palabra.charAt(x))){
+                palabraSinSimbolos = palabraSinSimbolos + palabra.charAt(x);
+            }
+        }
+
+        int numeroRotaciones = palabraSinSimbolos.length() - 1;
+
+        for(int x = 0; x < numeroRotaciones; x++){
+            Auxiliar.recorreArray(rotor1);
+            Auxiliar.recorreArray(rotor2);
+            Auxiliar.recorreArray(rotor3);
+        }
+
+        //Aquí iremos guardando lo que vayamos decodificando
+        String [] palabraDecodificada = new String[palabra.length()];
+
+        //DE LA PALABRA CIFRADA AL ROTOR 3
+
+        /*Los ciclos van al reves en comparación del método enigma. Comenzamos decifrando la última letra, cada que
+        decifremos una letra, debemos "des-recorrer" el rotor, para eso usaremos el método retrasaArray().
+        */
+        for(int x = palabra.length()-1; x >= 0 ; x--) {
+
+            int indice;
+
+            if (!Auxiliar.isInThere(palabra.charAt(x))) {
+                palabraDecodificada[x] = String.valueOf(palabra.charAt(x));
+            } else {
+                //Ubicamos en qué posición se ubica la letra actual en el rotor 3
+                indice = Auxiliar.gimmeIndex(String.valueOf(palabra.charAt(x)), rotor3);
+                //Le asignamos ese lugar a la letra del alfabeto que originalmente ocupa ese lugar
+                palabraDecodificada[x] = alfabeto[indice];
+                //rdes-recorremos el rotor 3
+                Auxiliar.retrasaArray(rotor3);
+            }
+        }
+
+
+        //DEL ROTOR 3 AL ROTOR 2
+        //Nuestra palabra ahora es el arreglo que generamos
+        palabra = Auxiliar.gimmeWord(palabraDecodificada);
+
+        for(int x = palabra.length()-1; x >= 0 ; x--) {
+
+            int indice;
+
+            if (!Auxiliar.isInThere(palabra.charAt(x))) {
+                palabraDecodificada[x] = String.valueOf(palabra.charAt(x));
+            } else {
+                indice = Auxiliar.gimmeIndex(String.valueOf(palabra.charAt(x)), rotor2);
+                palabraDecodificada[x] = alfabeto[indice];
+                Auxiliar.retrasaArray(rotor2);
+            }
+        }
+
+        palabra = Auxiliar.gimmeWord(palabraDecodificada);
+
+        for(int x = palabra.length()-1; x >= 0 ; x--) {
+
+            int indice;
+
+            if(!Auxiliar.isInThere(palabra.charAt(x))){
+                palabraDecodificada[x] = String.valueOf(palabra.charAt(x));
+            }else {
+                indice = Auxiliar.gimmeIndex(String.valueOf(palabra.charAt(x)), rotor1);
+                palabraDecodificada[x] = alfabeto[indice];
+                Auxiliar.retrasaArray(rotor1);
+            }
+        }
+
+        Clavijero clavijero = new Clavijero();
+        clavijero.mix(clave);
+
+        //Este es el clavijero que usaremos
+        String [] clavijeroEnigma = clavijero.clavijero;
+
+        palabra = Auxiliar.gimmeWord(palabraDecodificada);
+
+        for(int x = palabra.length()-1; x >= 0; x--){
+
+            int indice;
+
+            if(!Auxiliar.isInThere(palabra.charAt(x))){
+                palabraDecodificada[x] = String.valueOf(palabra.charAt(x));
+            }else{
+                indice = Auxiliar.gimmeIndex(String.valueOf(palabra.charAt(x)), clavijeroEnigma);
+                palabraDecodificada[x] = alfabeto[indice];
+            }
+        }
+
+        return palabraDecodificada;
+    }
+
     public String[] breakHASH(String[] palabra){
 
         int[] indices = new int[27];
