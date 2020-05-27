@@ -4,7 +4,7 @@ import Auxiliar.Auxiliar;
 import Cipher.Clavijero;
 import java.util.Scanner;
 
-public class AllTuring {
+class AllTuring {
     private String[] jumpToN(int clave, String palabra){
         //Nos aseguramos que la clave sea mayor a cero.
         while(clave < 0) {
@@ -300,18 +300,17 @@ public class AllTuring {
             emojisDelCesar[x] = String.valueOf(Character.toChars(Integer.parseInt(hex, 16)));
         }
 
-        //Aquí almacenaremos los emojis que forman la palabra
-        //la longuitud es sobre dos porque cada dos caracteres forman un emoji
 
+        //Aquí guardaremos solo los emojis
         String palabraSinSimbolos = palabra;
 
         for(int x = 0; x < ABC.length(); x++){
             palabraSinSimbolos = palabraSinSimbolos.replace(String.valueOf(ABC.charAt(x)), "");
         }
 
-        System.out.println(palabraSinSimbolos);
-
+        //Este es el número de símbolos que no son emojis
         int simbolos = palabra.length() - palabraSinSimbolos.length();
+
 
         String [] emojis = new String [palabraSinSimbolos.length()/2 + simbolos];
         String[] cesarDecodificado = new String [palabraSinSimbolos.length()/2 + simbolos];
@@ -335,8 +334,6 @@ public class AllTuring {
             hashCodesEmojis[x] = emojisDelCesar[x].hashCode();
         }
 
-        Auxiliar.printArray(hashCodesEmojis);
-
         /*Verificamos cuáles hash codes coinciden y al emoji del arreglo de 27 con el que coincida, le asignamos
         el valor del arreglo del alfabeto que este en ese índice
          */
@@ -352,14 +349,18 @@ public class AllTuring {
             }
         }
 
-        Auxiliar.printArray(cesarDecodificado);
+        String palabraSimbolos = palabra;
 
+        for(int x = 0; x < palabraSinSimbolos.length(); x++){
+            palabraSimbolos = palabraSimbolos.replace(String.valueOf(palabraSinSimbolos.charAt(x)), "");
+        }
+
+        int indice = 0;
         //Esto soluciona lo de los símbolos y espacios
         for (int x = 0; x < cesarDecodificado.length; x++) {
-            for(int y = 0; y < palabra.length(); y++){
-                if (cesarDecodificado[x] == null) {
-                    cesarDecodificado[x] = String.valueOf(palabra.charAt(x));
-                }
+            if (cesarDecodificado[x] == null) {
+                    cesarDecodificado[x] = String.valueOf(palabraSimbolos.charAt(indice));
+                    indice++;
             }
         }
 
@@ -597,8 +598,6 @@ public class AllTuring {
             }
         }
 
-        String simbolos1 = "";
-
         //Para resolver los nulls que pasa cuando no hay equivalencia en morse
         for (int x = 0; x < mensajeFinal.length; x++) {
             if (mensajeFinal[x] == null) {
@@ -634,12 +633,51 @@ public class AllTuring {
     
     protected String[] Decode(int clave, String mensaje){
         System.out.println("¿Qué método para desencriptar prefiere usar: ");
-        System.out.println("1. jumpToN \n 2. cesarFall \n 3. cesarEmojiFall \n 4. bombe \n 5. goTesla ");
+        System.out.println("1. jumpToN \n 2. cesarFall \n 3. cesarEmojiFall \n 4. bombe \n 5. goTesla \n 6. contraPolibio");
 
         Scanner scan = new Scanner(System.in);
         int elección = scan.nextInt();
 
-        while (!(elección>=1 && elección<=5)){
+        while (!(elección>=1 && elección<=6)){
+            System.out.println("Esa opción es inválida. Pruebe de nuevo. ");
+            elección = scan.nextInt();
+        }
+
+        String [] decodificado = {" "};
+
+        switch (elección){
+            case 1:
+                decodificado = jumpToN(clave, mensaje);
+                break;
+            case 2:
+                decodificado = cesarFall(clave, mensaje);
+                break;
+            case 3:
+                decodificado = cesarEmojiFall(clave, mensaje);
+                break;
+            case 4:
+                decodificado = bombe(clave, mensaje);
+                break;
+            case 5:
+                decodificado = goTesla(mensaje);
+                break;
+            case 6:
+                decodificado = contraPolibio(clave, mensaje);
+                break;
+        }
+
+        return decodificado;
+    }
+
+    protected String[] Decode(int clave, String [] mensaje){
+        System.out.println("¿Qué método para desencriptar prefiere usar: ");
+        System.out.println("1. jumpToN \n 2. cesarFall \n 3. cesarEmojiFall \n 4. bombe \n 5. goTesla \n 6. breakHash " +
+                "\n 7. contraPolibio");
+
+        Scanner scan = new Scanner(System.in);
+        int elección = scan.nextInt();
+
+        while (!(elección>=1 && elección<=7)){
             System.out.println("Esa opción es inválida. Pruebe de nuevo. ");
             elección = scan.nextInt();
         }
@@ -662,46 +700,17 @@ public class AllTuring {
             case 5:
                 decodificado = goTesla(mensaje);
                 break;
-        }
-
-        return decodificado;
-    }
-
-    protected String[] Decode(int clave, String [] mensaje){
-        System.out.println("¿Qué método para desencriptar prefiere usar: ");
-        System.out.println("1. jumpToN \n 2. cesarFall \n 3. cesarEmojiFall \n 4. bombe \n 5. goTesla \n 6. breakHash");
-
-        Scanner scan = new Scanner(System.in);
-        int elección = scan.nextInt();
-
-        while (!(elección>=1 && elección<=5)){
-            System.out.println("Esa opción es inválida. Pruebe de nuevo. ");
-            elección = scan.nextInt();
-        }
-
-        String[] decodificado = {" "};
-
-        switch (elección){
-            case 1:
-                decodificado = jumpToN(clave, mensaje);
-                break;
-            case 2:
-                decodificado = cesarFall(clave, mensaje);
-                break;
-            case 3:
-                decodificado = cesarEmojiFall(clave, mensaje);
-                break;
-            case 4:
-                decodificado = bombe(clave, mensaje);
-                break;
-            case 5:
-                //
-                break;
             case 6:
                 decodificado = breakHASH(mensaje);
+                break;
+            case 7:
+                decodificado = contraPolibio(clave, mensaje);
+                break;
         }
 
         return decodificado;
     }
+
+
 
 }

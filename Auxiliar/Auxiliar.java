@@ -162,5 +162,16 @@ public class Auxiliar {
         return isInThere;
     }
 
+    public static String [] fromCharToString(char [] arreglo){
+
+        String [] arregloString = new String[arreglo.length];
+
+        for (int x = 0; x < arreglo.length; x++){
+            arregloString[x] = String.valueOf(arreglo[x]);
+        }
+
+        return arregloString;
+    }
+
 
 }

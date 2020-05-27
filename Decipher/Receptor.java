@@ -1,11 +1,17 @@
 package Decipher;
 
+import Auxiliar.Auxiliar;
 import Cipher.Emisor;
 import java.util.Scanner;
 
-public class Receptor {
+public class Receptor extends AllTuring{
 
     private String privateKeyR;
+
+    //construtor
+    public Receptor(String privateKey) {
+        privateKey = this.privateKeyR;
+    }
 
     //Metodos getters y setters
     public String getPrivateKey() {
@@ -17,26 +23,45 @@ public class Receptor {
     }
     //Fin de metodos getter y setters 
 
-    //construtor 
-    public Receptor(String privateKey) {
-        privateKey = this.privateKeyR;
-    }
 
-    public void Decode(Emisor privatekeyE) {//si pide que no devuelva, entonces lo sig no se imprimiria 
+    public void Decode(String clavePrivada, String mensaje) {
 
-        if (privatekeyE.equals(this.privateKeyR)) {//no entiendo en que momento estamos diciendo cual es la clave de cada 
-            AllTuring t = new AllTuring();//entonces no sé en que momento debemos de dar el valor a cada clavePrivada
-            System.out.println("Las contraseñas son correctas, procedamos. ");//pero fuera de eso si cumple que son iguales jala
-            System.out.println("Introduzca una clave.");
+        if (clavePrivada.equals(this.privateKeyR)) {
+            System.out.println("Las contraseñas son correctas, ahora puede decifrar. ");
+            System.out.println("Introduzca una clave entera (mayor cero) para el decifrado: ");
             Scanner scan = new Scanner(System.in);
             int clave = scan.nextInt();
-            System.out.println("Ahora introduzca un mensaje por decifrar.");
-            Scanner scan_2 = new Scanner(System.in);
-            String mensaje = scan_2.nextLine();
-            t.Decode(clave, mensaje);
+
+            while(clave < 0){
+                System.out.println("La clave es menor que cero, por favor, introduzca una clave mayor a cero: ");
+                clave = scan.nextInt();
+            }
+
+            String [] decodificada = super.Decode(clave, mensaje);
+
+            String palabra = Auxiliar.gimmeWord(decodificada);
+
+            System.out.println("La palabra ha sido decifrada: ");
+            System.out.println("Su mensaje: "+ mensaje + " decodificado con el método seleccionado le regresa: ");
+            System.out.println(palabra);
+
         } else {
-            System.out.println("Las contraseñas no son iguales");
+            System.out.println("Las contraseñas privadas no son iguales. ");
         }
+    }
+
+    public void Decode(String clavePrivada, String [] mensaje) {
+
+        String mensajeChido = Auxiliar.gimmeWord(mensaje);
+
+        Decode(clavePrivada, mensajeChido);
+    }
+
+    public void Decode(String clavePrivada, char[] mensaje) {
+
+        String[] mensajeChido = Auxiliar.fromCharToString(mensaje);
+
+        Decode(clavePrivada, mensajeChido);
     }
 
 }
