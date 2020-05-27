@@ -331,7 +331,7 @@ import java.util.*;
         codigoM[0] = " .- ";        // a
         codigoM[1] = " -... ";        // b
         codigoM[2] = " -.-. ";        // c
-        codigoM[3] = " - .. ";        // d
+        codigoM[3] = " -.. ";        // d
         codigoM[4] = " . ";        // e
         codigoM[5] = " ..-. ";        // f
         codigoM[6] = " -. ";        // g
@@ -340,7 +340,7 @@ import java.util.*;
         codigoM[9] = " .--- ";        // j
         codigoM[10] = " -.- ";        // k
         codigoM[11] = " .-.. ";        // l
-        codigoM[12] = " - ";        // m
+        codigoM[12] = " -- ";        // m
         codigoM[13] = " -. ";        // n
         codigoM[14] = " --- ";        // o
         codigoM[15] = " .--. ";         // p
@@ -353,7 +353,7 @@ import java.util.*;
         codigoM[22] = " .-- ";        // w
         codigoM[23] = " -..- ";         // x
         codigoM[24] = " -.-- ";         // y
-        codigoM[25] = " - .. ";         // z
+        codigoM[25] = " --.. ";         // z
         codigoM[26] = " ----- ";        // 0
         codigoM[27] = " .---- ";        // 1
         codigoM[28] = " ..--- ";        // 2
@@ -362,7 +362,7 @@ import java.util.*;
         codigoM[31] = " ..... ";        // 5
         codigoM[32] = " -.... ";        // 6
         codigoM[33] = " --... ";        // 7
-        codigoM[34] = " --- .. ";    // 8
+        codigoM[34] = " ---.. ";    // 8
         codigoM[35] = " ----. ";        // 9
         codigoM[36] = " .- ";        // á
         codigoM[37] = " . ";        // é
@@ -371,26 +371,22 @@ import java.util.*;
         codigoM[40] = " ..- ";        // ú
         codigoM[41] = " .-.-.- ";    // .
         codigoM[42] = " --..-- ";    // ,
-        codigoM[43] = " ..-- .. ";    // ?
-        codigoM[44] = " .-.- .. ";    // !
+        codigoM[43] = " ..--.. ";    // ?
+        codigoM[44] = " .-.-.. ";    // !
         codigoM[45] = " -.--. ";        // (
-        codigoM[46] = " -. - .- ";    // )
+        codigoM[46] = " -.-.- ";    // )
         codigoM[47] = " -.--. ";        // [
-        codigoM[48] = " -. - .- ";    // ]
+        codigoM[48] = " -.-.- ";    // ]
         codigoM[49] = " .-... ";    // &
         codigoM[50] = " ---... ";    // :
         codigoM[51] = " -.-.-. ";    // ;
         codigoM[52] = " -...- ";        // =
         codigoM[53] = " .-.-. ";        // +
         codigoM[54] = " -....- ";	// -
-        codigoM[55] = " .. - .- ";	// _
+        codigoM[55] = " ..-.- ";	// _
         codigoM[56] = " ...-..- ";	// $
-        codigoM[57] = " . - .-. ";	// @   
-        codigoM[54] = " -....- ";    // -
-        codigoM[55] = " .. - .- ";    // _
-        codigoM[56] = " ...-..- ";    // $
-        codigoM[57] = " . - .-. ";    // @
-        codigoM[58] = "/";            //espacio
+        codigoM[57] = " .-.-. ";	// @  
+        codigoM[58]=" / ";             //espacio
         
         mensaje = mensaje.toLowerCase();
         char[] mensajeComoArreglo = mensaje.toCharArray();
