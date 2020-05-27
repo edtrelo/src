@@ -916,7 +916,7 @@ public class AllTuring {
         //metodo de descifrado de cMorse
     public String[] goTesla( String mensajeDcf) {//el metodo es privado, por el momento dejemoslo en publico
             
-        String ABC = " abcdefghijklmnopqrstuvwxyz 0123456789.,?! () [] &:; = + -_ $ @ ";
+        String ABC = "abcdefghijklmnopqrstuvwxyz0123456789.,?!()[]&:;=+-_$@ ";
 
         String codigoM[] = new String[60];
         
