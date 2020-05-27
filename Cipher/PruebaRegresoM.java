@@ -75,7 +75,7 @@ public class PruebaRegresoM {
             for(int j=0;j<60;j++){
              if(newMensajeDcf[i].equalsIgnoreCase(codigoM[j])){//este if no esta entrando.i.e no se cumple la logica
                  mensajeFinal[i]=String.valueOf(newABC[j]);
-                 System.out.print(mensajeFinal[i]);//imrpime el mensaje descifrado con la clave
+                 System.out.print(mensajeFinal[i]);//imrpime el mensaje descifrado con la clave incluida 
              }
             }
         }
