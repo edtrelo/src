@@ -45,6 +45,8 @@ public class Emisor extends SuperEnigma{
         return super.HASH(this.mensaje);
     }
 
+    public String[] cMorse(int clave){return super.cMorse(clave, this.mensaje);}
+
 
     //-------Fin: Métodos-----------------------------------------------------------------
 
